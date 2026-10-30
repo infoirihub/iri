@@ -1,7 +1,9 @@
 const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.nav');toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false')}));document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.focus();}});document.getElementById('year').textContent=new Date().getFullYear();const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));const dept=document.getElementById('department');const service=document.getElementById('service');const options={'Halal Research':['Ingredient Halal Status Assessment','Product Halal Assessment','Shariah Research Question','Technical Ingredient Query'],'Halal Training':['Basic Halal Awareness','Halal Internal Auditor Training','Halal Lead Auditor Training','HACCP / ISO / GMP Training','Corporate Training'],'Certification':['Halal Certification','ISO Certification','HACCP Certification','GMP Certification','Certification Consultancy'],'Laboratory Testing':['Food Product Testing','Ingredient Composition Analysis','Microbiological Testing','Chemical / Additive Analysis','Halal-related Product Testing','Species / DNA Identification','Gelatin / Collagen Source Analysis','Alcohol / Ethanol Analysis','Contaminants / Residue Testing','Find a Suitable Laboratory','Other'],'General Inquiry':['General Information','Partnership','Other']};
 const labFields=document.getElementById('lab-request-fields');
 const labSelect=document.getElementById('preferred-laboratory');
-function updateServices(){service.innerHTML='<option value="">Choose a service</option>';(options[dept.value]||[]).forEach(item=>{const option=document.createElement('option');option.textContent=item;service.appendChild(option)});const isLab=dept.value==='Laboratory Testing';labFields.hidden=!isLab;labSelect.required=isLab;}
+const requiredTest=document.querySelector('[name="required_test"]');
+const formSubmitButton=document.querySelector('#inquiry-form button[type="submit"]');
+function updateServices(){service.innerHTML='<option value="">Choose a service</option>';(options[dept.value]||[]).forEach(item=>{const option=document.createElement('option');option.textContent=item;service.appendChild(option)});const isLab=dept.value==='Laboratory Testing';labFields.hidden=!isLab;labSelect.required=isLab;requiredTest.required=isLab;if(formSubmitButton)formSubmitButton.innerHTML=isLab?'Submit lab testing request <span>→</span>':'Send enquiry <span>→</span>';}
 dept.addEventListener('change',updateServices);document.querySelectorAll('[data-department]').forEach(link=>link.addEventListener('click',()=>{dept.value=link.dataset.department;updateServices()}));const inquiryForm=document.getElementById('inquiry-form');
 const feedback=document.getElementById('form-feedback');
 const whatsappLink=document.getElementById('whatsapp-enquiry');
@@ -31,9 +33,10 @@ inquiryForm.addEventListener('submit',async event=>{
     feedback.textContent='We could not submit the form. Please use the WhatsApp option or email contacthalalbridge@gmail.com directly.';
   }finally{
     submitButton.disabled=false;
-    submitButton.innerHTML='Send enquiry <span>→</span>';
+    submitButton.innerHTML=dept.value==='Laboratory Testing'?'Submit lab testing request <span>→</span>':'Send enquiry <span>→</span>';
   }
 });
+updateServices();
 updateWhatsAppLink();
 
 /* Search and filter the laboratory directory */
