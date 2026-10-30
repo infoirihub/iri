@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#064e3b">
+  <title>HalalBridge | Internal Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <a class="brand" href="index.html"><span class="brand-mark">H</span><span><strong>Halal<span>Bridge</span></strong><small>INTERNAL ADMINISTRATION</small></span></a>
+    <div class="header-actions"><span id="admin-user" class="muted"></span><button id="logout-button" class="button secondary" hidden>Sign out</button></div>
+  </header>
+  <main class="admin-main">
+    <section id="setup-notice" class="notice" hidden>
+      <h1>Admin system setup required</h1>
+      <p>The dashboard interface is ready, but it is not connected to a database yet. Add the Supabase project URL and public anon/publishable key to <code>admin-config.js</code>, then run <code>supabase/schema.sql</code> in your Supabase SQL Editor and create an authorised admin user.</p>
+      <p><strong>Security:</strong> Never add a Supabase service-role key, database password or private credential to this website.</p>
+    </section>
+    <section id="login-panel" class="login-panel" hidden>
+      <div class="eyebrow">RESTRICTED ACCESS</div>
+      <h1>Admin sign in</h1>
+      <p>Sign in with an authorised HalalBridge administrator account.</p>
+      <form id="login-form">
+        <label>Email address<input type="email" name="email" autocomplete="username" required></label>
+        <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+        <button class="button primary" type="submit">Sign in securely</button>
+        <p id="login-feedback" class="feedback" aria-live="polite"></p>
+      </form>
+    </section>
+    <section id="dashboard" hidden>
+      <div class="page-heading"><div><div class="eyebrow">OPERATIONS OVERVIEW</div><h1>Enquiry dashboard</h1><p>Review incoming requests and coordinate laboratory testing.</p></div><button id="refresh-button" class="button secondary">Refresh</button></div>
+      <div class="stats">
+        <article><span>Total requests</span><strong id="count-total">0</strong></article>
+        <article><span>Pending</span><strong id="count-pending">0</strong></article>
+        <article><span>Under review</span><strong id="count-review">0</strong></article>
+        <article><span>In process</span><strong id="count-process">0</strong></article>
+        <article><span>Completed</span><strong id="count-completed">0</strong></article>
+      </div>
+      <div class="toolbar">
+        <input id="search-input" type="search" placeholder="Search request, company, product or lab...">
+        <select id="status-filter"><option value="">All statuses</option><option>Pending</option><option>Under Review</option><option>In Process</option><option>Completed</option><option>Rejected</option></select>
+        <select id="type-filter"><option value="">All enquiry types</option><option value="Laboratory Testing">Laboratory Testing</option><option value="Halal Research">Halal Research</option><option value="Halal Training">Halal Training</option><option value="Certification">Certification</option><option value="General Inquiry">General Inquiry</option></select>
+        <button id="export-button" class="button secondary">Export CSV</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Request</th><th>Received</th><th>Company / Contact</th><th>Product / Test</th><th>Preferred lab</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="request-rows"><tr><td colspan="7" class="empty">Loading requests…</td></tr></tbody>
+        </table>
+      </div>
+      <p id="dashboard-feedback" class="feedback" aria-live="polite"></p>
+    </section>
+  </main>
+  <dialog id="request-dialog">
+    <form id="request-detail-form" method="dialog">
+      <div class="dialog-heading"><div><div class="eyebrow">REQUEST DETAILS</div><h2 id="detail-title">Request</h2></div><button type="button" id="close-dialog" class="icon-button" aria-label="Close">×</button></div>
+      <div id="request-detail" class="detail-grid"></div>
+      <label>Processing status<select id="detail-status" required><option>Pending</option><option>Under Review</option><option>In Process</option><option>Completed</option><option>Rejected</option></select></label>
+      <label>Internal notes<textarea id="detail-notes" rows="4" placeholder="Internal coordination notes (not visible to the applicant)"></textarea></label>
+      <div class="dialog-actions"><button type="button" id="cancel-detail" class="button secondary">Cancel</button><button type="submit" class="button primary">Save changes</button></div>
+      <p id="detail-feedback" class="feedback" aria-live="polite"></p>
+    </form>
+  </dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
