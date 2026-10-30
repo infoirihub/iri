@@ -31,3 +31,41 @@ inquiryForm.addEventListener('submit',async event=>{
   }
 });
 updateWhatsAppLink();
+
+/* Search and filter the laboratory directory */
+(function(){
+ const search=document.getElementById('lab-search');
+ const city=document.getElementById('lab-city');
+ const test=document.getElementById('lab-test');
+ const grid=document.getElementById('lab-grid');
+ if(!grid)return;
+ const cards=[...grid.querySelectorAll('.lab-card')];
+ const count=document.getElementById('lab-result-count');
+ const empty=document.getElementById('lab-empty');
+ function filterLabs(){
+  const q=(search.value||'').trim().toLowerCase();
+  const c=city.value.toLowerCase();
+  const t=test.value.toLowerCase();
+  let shown=0;
+  cards.forEach(card=>{
+   const matchesText=!q||card.textContent.toLowerCase().includes(q);
+   const matchesCity=!c||card.dataset.city===c;
+   const matchesTest=!t||(card.dataset.tests||'').split(' ').includes(t);
+   const visible=matchesText&&matchesCity&&matchesTest;
+   card.hidden=!visible;
+   if(visible)shown++;
+  });
+  count.textContent='Showing '+shown+' of '+cards.length+' listed laboratories';
+  empty.hidden=shown!==0;
+ }
+ [search,city,test].forEach(el=>el.addEventListener('input',filterLabs));
+ [city,test].forEach(el=>el.addEventListener('change',filterLabs));
+ const labOption=[...dept.options].find(o=>o.value==='Laboratory Testing');
+ if(labOption){options['Laboratory Testing']=['Food Product Testing','Microbiological Testing','Chemical / Ingredient Analysis','Halal-related Product Testing','Find a Suitable Laboratory','Other'];}
+ document.querySelectorAll('[data-lab-enquiry]').forEach(link=>link.addEventListener('click',()=>{
+  dept.value='Laboratory Testing';updateServices();
+  const msg=document.querySelector('[name="message"]');
+  if(msg&&!msg.value)msg.value='I would like help finding a suitable laboratory in Pakistan for product testing. Product / sample: ; Required test / parameter: ; Preferred city: ';
+ }));
+ filterLabs();
+})();
