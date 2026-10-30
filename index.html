@@ -76,7 +76,40 @@
 <form class="inquiry-form" id="inquiry-form" action="https://formsubmit.co/ajax/contacthalalbridge@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="New HalalBridge website enquiry">
 <input type="hidden" name="_captcha" value="true">
-<input type="hidden" name="_template" value="table"><div class="form-row"><label>Full name<input name="name" required placeholder="Your full name"></label><label>Work email<input type="email" name="email" required placeholder="name@company.com"></label></div><div class="form-row"><label>Company / organisation<input name="company" placeholder="Company name (optional)"></label><label>Phone / WhatsApp<input name="phone" placeholder="+92"></label></div><div class="form-row"><label>Service area<select name="department" id="department" required><option value="">Select a service area</option><option>Halal Research</option><option>Halal Training</option><option>Certification</option><option>Laboratory Testing</option><option>General Inquiry</option></select></label><label>Service required<select name="service" id="service"><option value="">Choose a service</option></select></label></div><label>Applicable standard (if known)<select name="standard"><option value="">Not sure / Need guidance</option><option>PS 3733</option><option>OIC/SMIIC 1</option><option>MS 1500</option><option>GSO</option><option>ISO 22000</option><option>ISO 9001</option><option>HACCP</option><option>GMP</option><option>Other</option></select></label><label>Tell us about your requirement<textarea name="message" rows="4" required placeholder="Please describe your question or project..."></textarea></label><button class="button primary submit" type="submit">Send enquiry <span>→</span></button><a class="button outline" id="whatsapp-enquiry" href="https://wa.me/92311211122291" target="_blank" rel="noopener">Send via WhatsApp</a><p class="form-feedback" id="form-feedback" aria-live="polite">Your enquiry will be sent securely to our official email. First-time activation of the form service is required.</p></form></div></section>
+<input type="hidden" name="_template" value="table"><div class="form-row"><label>Full name<input name="name" required placeholder="Your full name"></label><label>Work email<input type="email" name="email" required placeholder="name@company.com"></label></div><div class="form-row"><label>Company / organisation<input name="company" placeholder="Company name (optional)"></label><label>Phone / WhatsApp<input name="phone" placeholder="+92"></label></div><div class="lab-request-fields" id="lab-request-fields" hidden>
+<div class="form-row"><label>Product / sample name<input name="product_name" id="product-name" placeholder="e.g. Chocolate"></label><label>Preferred city<input name="preferred_city" placeholder="e.g. Karachi, Lahore, Islamabad"></label></div>
+<label>Choose a laboratory<select name="preferred_laboratory" id="preferred-laboratory"><option value="">Select a laboratory</option>
+<optgroup label="PNAC-listed food testing laboratories">
+<option>PCSIR Laboratories Complex, Karachi (LAB-002)</option>
+<option>Qarshi Research International (Pvt.) Ltd., Haripur (LAB-003)</option>
+<option>PCSIR Laboratories Complex, Peshawar (LAB-019)</option>
+<option>TTI Testing Laboratories, Lahore (LAB-022)</option>
+<option>Food & Biotechnology Research Centre (FBRC), PCSIR Lahore (LAB-024)</option>
+<option>Applied Chemistry Research Centre (ACRC), PCSIR Lahore (LAB-038)</option>
+<option>Industrial Analytical Centre, ICCBS, University of Karachi (LAB-039)</option>
+<option>Intertek Pakistan Analytical Lab, Karachi (LAB-057)</option>
+<option>Nestlé Pakistan Limited, Kabirwala (LAB-060)</option>
+<option>SGS Agricultural, Food & Life Lab, Karachi (LAB-065)</option>
+<option>Nestlé QA Lab, Islamabad (LAB-068)</option>
+<option>DESTO Food Testing Laboratory, Karachi (LAB-085)</option>
+<option>Engro Foods Quality Control Lab, Sahiwal (LAB-088)</option>
+<option>Engro Foods QC Lab, Sukkur (LAB-091)</option>
+<option>Fish Quality Control Labs, Lahore (LAB-126)</option>
+<option>Central Diagnostic & Analytical Laboratories, K&N’s Foods (LAB-219)</option>
+<option>District Food Laboratory, Punjab Food Authority, Lahore (LAB-212)</option>
+<option>Quality Control Laboratory, Dalda Foods Limited, Karachi (LAB-249)</option>
+<option>Food Testing Laboratory, NIFA, Peshawar (LAB-293)</option>
+<option>POL & Food Labs, ASC School, Nowshera (LAB-303)</option>
+</optgroup>
+<optgroup label="Other relevant PNAC-listed analytical laboratories — scope to be confirmed">
+<option>SGS Chemical, Environmental & Microbiological Laboratory, Lahore (LAB-067)</option>
+<option>JBH Complex Laboratory, Wah Cantt — Chemical Testing (LAB-009)</option>
+</optgroup>
+<option value="Other / help me select">Other / Please help me select a suitable laboratory</option>
+</select><small>Laboratory availability and its current accredited test scope will be confirmed before processing.</small></label>
+<label>Required test / ingredient to be analysed<input name="required_test" placeholder="e.g. ingredient composition, gelatin source, species identification, alcohol, additives"></label>
+</div>
+<div class="form-row"><label>Service area<select name="department" id="department" required><option value="">Select a service area</option><option>Halal Research</option><option>Halal Training</option><option>Certification</option><option>Laboratory Testing</option><option>General Inquiry</option></select></label><label>Service required<select name="service" id="service"><option value="">Choose a service</option></select></label></div><label>Applicable standard (if known)<select name="standard"><option value="">Not sure / Need guidance</option><option>PS 3733</option><option>OIC/SMIIC 1</option><option>MS 1500</option><option>GSO</option><option>ISO 22000</option><option>ISO 9001</option><option>HACCP</option><option>GMP</option><option>Other</option></select></label><label>Tell us about your requirement<textarea name="message" rows="4" required placeholder="Please describe your question or project..."></textarea></label><button class="button primary submit" type="submit">Send enquiry <span>→</span></button><a class="button outline" id="whatsapp-enquiry" href="https://wa.me/92311211122291" target="_blank" rel="noopener">Send via WhatsApp</a><p class="form-feedback" id="form-feedback" aria-live="polite">Your enquiry will be sent securely to our official email. First-time activation of the form service is required.</p></form></div></section>
 </main>
 <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">H</span><span><strong>Halal<span>Bridge</span></strong><small>RESEARCH • TRAINING • CERTIFICATION</small></span></a><p>Connecting Halal knowledge, industry and standards.</p><small>© <span id="year"></span> HalalBridge. All rights reserved.</small></footer>
 <script src="script.js"></script>
