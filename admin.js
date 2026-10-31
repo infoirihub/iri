@@ -106,7 +106,12 @@
   ['search-input','status-filter','type-filter'].forEach(id=>document.getElementById(id).addEventListener('input',render));
   document.getElementById('export-button').addEventListener('click',()=>{
     const fields=['request_no','created_at','name','email','company','phone','product_name','preferred_city','preferred_laboratory','required_test','department','service','standard','message','status','internal_notes'];
-    const csv=[fields.join(','),...requests.map(r=>fields.map(k=>'"'+String(r[k]??'').replace(/"/g,'""')+'"').join(','))].join('\r\n');
+    const csvCell=value=>{
+      let cell=String(value??'');
+      if(/^[\\s]*[=+\\-@]/.test(cell)) cell="'"+cell;
+      return '"'+cell.replace(/"/g,'""')+'"';
+    };
+    const csv=[fields.join(','),...requests.map(r=>fields.map(k=>csvCell(r[k])).join(','))].join('\r\n');
     const url=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));
     const a=document.createElement('a');a.href=url;a.download='halalbridge-requests.csv';a.click();URL.revokeObjectURL(url);
   });
