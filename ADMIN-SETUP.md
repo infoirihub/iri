@@ -21,7 +21,8 @@ The public website is hosted on GitHub Pages. GitHub Pages is static hosting and
    ```
 5. Copy the Project URL and anon/publishable key from Supabase Project Settings > API.
 6. Add those two public values to `admin-config.js`. Do not add a service_role key.
-7. The admin dashboard will be available at `/iri/admin.html` after deployment.
+7. The public laboratory-testing form now inserts lab requests into `lab_testing_requests` when the Supabase settings are configured. It also sends the existing email notification through FormSubmit. Non-laboratory enquiries continue using the email route only.
+8. The admin dashboard will be available at `/iri/admin.html` after deployment.
 
 ## Current implementation boundary
 This is the dashboard and database-security foundation. It will not show or save public website submissions until the Supabase project is configured and the public enquiry form is connected to the database. The existing email enquiry route remains separate until that integration is completed and tested.
