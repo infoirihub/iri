@@ -18,19 +18,54 @@ inquiryForm.addEventListener('submit',async event=>{
   event.preventDefault();
   if(!inquiryForm.reportValidity()) return;
   const submitButton=inquiryForm.querySelector('button[type="submit"]');
+  const isLabRequest=dept.value==='Laboratory Testing';
   submitButton.disabled=true;
   submitButton.textContent='Sending…';
   feedback.textContent='Sending your enquiry securely…';
+  let databaseSaved=false;
   try{
-    const response=await fetch(inquiryForm.action,{method:'POST',body:new FormData(inquiryForm),headers:{'Accept':'application/json'}});
+    const formData=new FormData(inquiryForm);
+    const config=window.HALALBRIDGE_SUPABASE||{};
+    if(isLabRequest && config.url && config.anonKey && window.supabase){
+      const db=window.supabase.createClient(config.url,config.anonKey);
+      const request={
+        name:String(formData.get('name')||'').trim(),
+        email:String(formData.get('email')||'').trim(),
+        company:String(formData.get('company')||'').trim()||null,
+        phone:String(formData.get('phone')||'').trim()||null,
+        product_name:String(formData.get('product_name')||'').trim()||null,
+        preferred_city:String(formData.get('preferred_city')||'').trim()||null,
+        preferred_laboratory:String(formData.get('preferred_laboratory')||'').trim(),
+        required_test:String(formData.get('required_test')||'').trim(),
+        department:'Laboratory Testing',
+        service:String(formData.get('service')||'').trim()||null,
+        standard:String(formData.get('standard')||'').trim()||null,
+        message:String(formData.get('message')||'').trim()
+      };
+      const {error}=await db.from('lab_testing_requests').insert(request);
+      if(error) throw new Error('Database submission failed: '+error.message);
+      databaseSaved=true;
+    }
+    const response=await fetch(inquiryForm.action,{method:'POST',body:formData,headers:{'Accept':'application/json'}});
     const result=await response.json();
-    if(!response.ok || result.success==='false') throw new Error(result.message||'Submission failed');
-    feedback.textContent='Thank you. Your enquiry has been submitted successfully. Our team will contact you soon.';
+    if(!response.ok || result.success==='false') {
+      if(databaseSaved) {
+        feedback.textContent='Your lab request has been safely recorded in the HalalBridge dashboard, but the email notification could not be sent. Please also email contacthalalbridge@gmail.com if urgent.';
+      } else throw new Error(result.message||'Email submission failed');
+    } else {
+      feedback.textContent=databaseSaved
+        ?'Thank you. Your laboratory request has been recorded and the HalalBridge team has been notified.'
+        :'Thank you. Your enquiry has been submitted successfully. Our team will contact you soon.';
+    }
     inquiryForm.reset();
     updateServices();
     updateWhatsAppLink();
   }catch(error){
-    feedback.textContent='We could not submit the form. Please use the WhatsApp option or email contacthalalbridge@gmail.com directly.';
+    if(isLabRequest && !databaseSaved && /Database submission failed/.test(error.message)){
+      feedback.textContent='The admin database could not save this request. Please use WhatsApp or email contacthalalbridge@gmail.com so the team can receive it.';
+    } else {
+      feedback.textContent='We could not submit the form. Please use the WhatsApp option or email contacthalalbridge@gmail.com directly.';
+    }
   }finally{
     submitButton.disabled=false;
     submitButton.innerHTML=dept.value==='Laboratory Testing'?'Submit lab testing request <span>→</span>':'Send enquiry <span>→</span>';
