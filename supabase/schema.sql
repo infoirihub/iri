@@ -84,7 +84,15 @@ create policy "Admins can update lab requests"
   with check ((select public.is_halalbridge_admin()));
 
 grant select on public.admin_profiles to authenticated;
-grant insert on public.lab_testing_requests to anon, authenticated;
+
+-- Limit public submissions to applicant-provided fields only. Generated IDs,
+-- request numbers, statuses, timestamps and internal notes cannot be supplied.
+revoke insert on public.lab_testing_requests from anon, authenticated;
+grant insert (
+  name, email, company, phone, product_name, preferred_city,
+  preferred_laboratory, required_test, department, service, standard, message
+) on public.lab_testing_requests to anon, authenticated;
+
 grant select, update on public.lab_testing_requests to authenticated;
 grant usage, select on sequence public.lab_testing_requests_request_no_seq to anon, authenticated;
 
