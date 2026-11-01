@@ -191,3 +191,103 @@ footer{border-top:1px solid var(--line)}
  .hero-slide.is-active .hero-slide-copy>*,.hero-slide.is-active .hero-art,.hero-art:before,.hero-art:after,.hero-pagination button.is-active:after{animation:none!important}
  .hero-slide{transition:none!important}
 }
+
+
+/* Premium presentation for the five named service slides */
+.hero-carousel{
+  background:
+    radial-gradient(ellipse at 82% 22%,rgba(190,214,194,.52),transparent 36%),
+    linear-gradient(118deg,#fbfcf8 0%,#eef4ee 52%,#e8f0e9 100%);
+}
+.hero-slide-copy .eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:#9a742d;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2.2px;
+}
+.hero-slide-copy .eyebrow:before{
+  content:"";
+  width:27px;
+  height:1px;
+  background:#b78a2d;
+}
+.hero-slide-copy h1{
+  font-size:clamp(48px,6.1vw,78px);
+  letter-spacing:-2.8px;
+  line-height:1.02;
+  font-weight:800;
+  text-wrap:balance;
+}
+.hero-slide-copy h1 em{
+  color:#a77a24;
+  display:inline-block;
+}
+.hero-slide-copy .hero-lead{
+  max-width:475px;
+  font-size:15px;
+  line-height:1.85;
+}
+.hero-art{
+  min-height:340px;
+  border-radius:22px;
+  border:1px solid rgba(183,138,45,.55);
+  box-shadow:0 28px 65px rgba(7,57,43,.16),inset 0 1px 0 rgba(255,255,255,.18);
+}
+.hero-art:before,.hero-art:after{
+  border-color:rgba(240,213,151,.28);
+}
+.hero-art-symbol{
+  width:190px;
+  height:190px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(240,213,151,.5);
+  border-radius:42px;
+  background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.025));
+  box-shadow:0 18px 45px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.18);
+  font-size:116px;
+}
+.hero-art-caption{
+  font-size:9px;
+  letter-spacing:2.8px;
+}
+.art-research-hero{background:radial-gradient(circle at 50% 42%,#267a5c 0,#0b5841 48%,#063b32 100%)}
+.art-training-hero{background:radial-gradient(circle at 50% 42%,#9b8248 0,#476747 48%,#123f36 100%)}
+.art-cert-hero{background:radial-gradient(circle at 50% 42%,#b78a2d 0,#55704b 48%,#073d33 100%)}
+.art-lab-hero{background:radial-gradient(circle at 50% 42%,#4d9998 0,#286c62 48%,#073d36 100%)}
+.art-library-hero{background:radial-gradient(circle at 50% 42%,#66879a 0,#315e68 48%,#073b35 100%)}
+.hero-service-strip{
+  border-radius:14px 14px 0 0;
+  box-shadow:0 -12px 35px rgba(10,65,46,.08);
+}
+.hero-service-strip a{
+  min-height:76px;
+  padding:13px 17px;
+}
+.hero-service-strip a:hover,.hero-service-strip a:focus-visible{
+  background:#f0f5ef;
+}
+.hero-service-strip b{
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.05px;
+}
+.hero-pagination button.is-active{
+  width:30px;
+  background:#a77a24;
+}
+@media(max-width:850px){
+  .hero-slide-copy h1{font-size:clamp(42px,8vw,58px)}
+  .hero-art{min-height:190px}
+  .hero-art-symbol{width:112px;height:112px;border-radius:27px;font-size:72px}
+  .hero-art-caption{bottom:14px;font-size:8px}
+}
+@media(max-width:520px){
+  .hero-slide-copy h1{font-size:43px;letter-spacing:-1.7px}
+  .hero-slide-copy .eyebrow{font-size:8px;letter-spacing:1.5px}
+  .hero-slide-copy .hero-lead{font-size:12px}
+  .hero-art-symbol{width:100px;height:100px;font-size:64px}
+}
