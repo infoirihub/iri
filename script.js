@@ -226,29 +226,77 @@ if (inquiryForm) {
   filterLabs();
 })();
 
-/* Accessible five-service hero slider */
-(function(){
- const root=document.querySelector('.hero-carousel');
- if(!root)return;
- const slides=[...root.querySelectorAll('.hero-slide')];
- const dots=[...root.querySelectorAll('.hero-pagination button')];
- const previous=root.querySelector('.hero-prev');
- const next=root.querySelector('.hero-next');
- if(!slides.length)return;
- let active=0,timer=null;
- const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- function show(index){
-  active=(index+slides.length)%slides.length;
-  slides.forEach((slide,i)=>{const current=i===active;slide.classList.toggle('is-active',current);slide.setAttribute('aria-hidden',String(!current));});
-  dots.forEach((dot,i)=>{const current=i===active;dot.classList.toggle('is-active',current);if(current)dot.setAttribute('aria-current','true');else dot.removeAttribute('aria-current');});
- }
- function stop(){if(timer){window.clearInterval(timer);timer=null;}}
- function start(){if(reduced)return;stop();timer=window.setInterval(()=>show(active+1),6000);}
- previous?.addEventListener('click',()=>{show(active-1);start();});
- next?.addEventListener('click',()=>{show(active+1);start();});
- dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);start();}));
- root.addEventListener('mouseenter',stop);root.addEventListener('mouseleave',start);
- root.addEventListener('focusin',stop);root.addEventListener('focusout',start);
- document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
- show(0);start();
+/* Accessible five-service hero carousel: one controller, autoplay and smooth transitions */
+(function () {
+  const root = document.querySelector('.hero-carousel');
+  if (!root) return;
+
+  const slides = Array.from(root.querySelectorAll('.hero-slide'));
+  const dots = Array.from(root.querySelectorAll('.hero-pagination button'));
+  const previous = root.querySelector('.hero-prev');
+  const next = root.querySelector('.hero-next');
+  if (slides.length < 2) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const interval = 5000;
+  let active = Math.max(0, slides.findIndex(slide => slide.classList.contains('is-active')));
+  let timer = null;
+  let paused = false;
+
+  function render(index) {
+    active = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const selected = i === active;
+      slide.classList.toggle('is-active', selected);
+      slide.setAttribute('aria-hidden', String(!selected));
+      slide.inert = !selected;
+    });
+    dots.forEach((dot, i) => {
+      const selected = i === active;
+      dot.classList.toggle('is-active', selected);
+      if (selected) {
+        dot.setAttribute('aria-current', 'true');
+      } else {
+        dot.removeAttribute('aria-current');
+      }
+    });
+    root.dataset.activeSlide = String(active);
+  }
+
+  function stop() {
+    if (timer !== null) {
+      window.clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function start() {
+    stop();
+    if (paused || reduceMotion.matches || document.hidden) return;
+    timer = window.setInterval(() => render(active + 1), interval);
+  }
+
+  function moveTo(index) {
+    render(index);
+    start();
+  }
+
+  previous?.addEventListener('click', () => moveTo(active - 1));
+  next?.addEventListener('click', () => moveTo(active + 1));
+  dots.forEach((dot, index) => dot.addEventListener('click', () => moveTo(index)));
+
+  root.addEventListener('mouseenter', () => { paused = true; stop(); });
+  root.addEventListener('mouseleave', () => { paused = false; start(); });
+  root.addEventListener('focusin', () => { paused = true; stop(); });
+  root.addEventListener('focusout', event => {
+    if (!root.contains(event.relatedTarget)) {
+      paused = false;
+      start();
+    }
+  });
+  document.addEventListener('visibilitychange', start);
+  reduceMotion.addEventListener?.('change', start);
+
+  render(active);
+  start();
 })();
