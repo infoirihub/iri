@@ -25,7 +25,11 @@ The public website is hosted on GitHub Pages. GitHub Pages is static hosting and
 8. The admin dashboard will be available at `/iri/admin.html` after deployment.
 
 ## Current implementation boundary
-This is the dashboard and database-security foundation. It will not show or save public website submissions until the Supabase project is configured and the public enquiry form is connected to the database. The existing email enquiry route remains separate until that integration is completed and tested.
+The public laboratory form is already wired to insert applicant-provided fields into `lab_testing_requests` when valid Supabase settings are present in `admin-config.js`. It then attempts the email notification through the configured FormSubmit endpoint. Non-laboratory enquiries use the email route only.
+
+Until a real Supabase project is configured and the mailbox owner activates the FormSubmit route, the dashboard and email notification are not production-ready. If Supabase is not configured, laboratory requests can use the email route but will not appear in the admin dashboard. If the database insert fails, the form reports that the request was not recorded and directs the applicant to use the official email or WhatsApp route.
+
+Before launch, test both successful and failed submissions, admin login, role restrictions, request status changes, internal notes, CSV export, and email delivery.
 
 ## Request lifecycle
 - New public submission: `Pending`
