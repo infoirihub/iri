@@ -203,8 +203,8 @@ begin
   foreach t in array array['phs_certification_bodies','phs_companies','phs_products','phs_ingredients','phs_product_ingredients','phs_certificates','phs_evidence_sources']
   loop
     execute format('alter table public.%I enable row level security', t);
-    execute format('drop policy if exists "HalalBridge admins manage %I" on public.%I', t, t);
-    execute format('create policy "HalalBridge admins manage %I" on public.%I for all to authenticated using ((select public.is_halalbridge_admin())) with check ((select public.is_halalbridge_admin()))', t, t);
+    execute format('drop policy if exists phs_admin_all on public.%I', t);
+    execute format('create policy phs_admin_all on public.%I for all to authenticated using ((select public.is_halalbridge_admin())) with check ((select public.is_halalbridge_admin()))', t);
     execute format('grant select, insert, update, delete on public.%I to authenticated', t);
   end loop;
 end $$;
