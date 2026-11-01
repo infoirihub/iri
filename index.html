@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=hero-slider-1">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -21,22 +21,41 @@
   </nav>
 </header>
 <main id="main-content">
-<section class="hero" id="home">
-  <div class="hero-glow"></div><div class="hero-copy reveal">
-    <p class="eyebrow">YOUR PARTNER IN HALAL INDUSTRY SOLUTIONS</p>
-    <h1>Connecting knowledge.<br><em>Building trust.</em></h1>
-    <p class="hero-lead">Practical Halal solutions through research, professional training and certification support — designed for businesses and communities.</p>
-    <div class="hero-actions"><a class="button primary" href="#services">Explore our services <span>→</span></a><a class="button outline" href="#contact">Talk to our team</a></div>
-    <div class="hero-proof"><span class="proof-icon">✓</span><span><b>Knowledge-led solutions</b><small>Shariah • Science • Standards</small></span></div>
+<section class="hero hero-carousel" id="home" aria-label="HalalBridge services">
+  <div class="hero-slides" aria-live="polite">
+    <article class="hero-slide is-active" data-slide="0">
+      <div class="hero-slide-copy"><p class="eyebrow">SHARIAH • SCIENCE • STANDARDS</p><h1>Halal <em>Research</em></h1><p class="hero-lead">Clear, evidence-based insight into ingredients, food processing and contemporary Halal questions.</p><a class="button primary" href="research.html">Explore Halal Research <span>→</span></a></div>
+      <div class="hero-art art-research-hero" aria-hidden="true"><span class="hero-art-symbol">⌕</span><span class="hero-art-caption">KNOWLEDGE THAT BUILDS TRUST</span></div>
+    </article>
+    <article class="hero-slide" data-slide="1">
+      <div class="hero-slide-copy"><p class="eyebrow">LEARN • DEVELOP • LEAD</p><h1>Professional <em>Training</em></h1><p class="hero-lead">Build practical competence in Halal awareness, auditing, food safety and standards.</p><a class="button primary" href="training.html">Explore Training <span>→</span></a></div>
+      <div class="hero-art art-training-hero" aria-hidden="true"><span class="hero-art-symbol">▤</span><span class="hero-art-caption">KNOWLEDGE INTO PRACTICE</span></div>
+    </article>
+    <article class="hero-slide" data-slide="2">
+      <div class="hero-slide-copy"><p class="eyebrow">INTEGRITY • COMPLIANCE • CONFIDENCE</p><h1>Halal <em>Certification</em></h1><p class="hero-lead">Understand certification pathways, audit readiness and the standards that guide your business.</p><a class="button primary" href="certification.html">Explore Certification <span>→</span></a></div>
+      <div class="hero-art art-cert-hero" aria-hidden="true"><span class="hero-art-symbol">✓</span><span class="hero-art-caption">CONFIDENCE THROUGH COMPLIANCE</span></div>
+    </article>
+    <article class="hero-slide" data-slide="3">
+      <div class="hero-slide-copy"><p class="eyebrow">ANALYSIS • VERIFICATION • QUALITY</p><h1>Laboratory <em>Testing</em></h1><p class="hero-lead">Find relevant food-testing laboratories and submit your testing requirements for review.</p><a class="button primary" href="index.html#laboratory-testing">Explore Lab Testing <span>→</span></a></div>
+      <div class="hero-art art-lab-hero" aria-hidden="true"><span class="hero-art-symbol">⚗</span><span class="hero-art-caption">TESTING WITH PURPOSE</span></div>
+    </article>
+    <article class="hero-slide" data-slide="4">
+      <div class="hero-slide-copy"><p class="eyebrow">READ • RESEARCH • DISCOVER</p><h1>Halal Digital <em>Library</em></h1><p class="hero-lead">Explore Islamic and Halal knowledge through e-books and digital research resources.</p><a class="button primary" href="library.html">Explore Digital Library <span>→</span></a></div>
+      <div class="hero-art art-library-hero" aria-hidden="true"><span class="hero-art-symbol">▥</span><span class="hero-art-caption">KNOWLEDGE AT YOUR FINGERTIPS</span></div>
+    </article>
   </div>
-  <div class="hero-visual reveal">
-    <div class="lab-scene" role="img" aria-label="Illustration of a food scientist examining a sample through a microscope">
-      <div class="lab-window"></div><div class="scientist"><div class="hair"></div><div class="head"><div class="mask"></div></div><div class="coat"></div><div class="arm"></div></div>
-      <div class="microscope"><div class="eyepiece"></div><div class="scope-top"></div><div class="scope-neck"></div><div class="scope-body"></div><div class="scope-stage"></div><div class="scope-base"></div></div>
-      <div class="sample"></div><div class="lab-label"><span class="halal-seal">حلال</span><span><b>Research-driven</b><small>Halal integrity at every step</small></span></div>
-    </div>
+  <button class="hero-control hero-prev" type="button" aria-label="Previous slide">‹</button>
+  <button class="hero-control hero-next" type="button" aria-label="Next slide">›</button>
+  <div class="hero-pagination" aria-label="Choose a service slide">
+    <button class="is-active" type="button" aria-label="Halal Research" aria-current="true"></button><button type="button" aria-label="Training"></button><button type="button" aria-label="Certification"></button><button type="button" aria-label="Lab Testing"></button><button type="button" aria-label="Halal Digital Library"></button>
   </div>
-  <div class="hero-bottom"><span>01 / 03</span><span class="hero-line"></span><span>Research · Training · Certification · Testing</span></div>
+  <div class="hero-service-strip">
+    <a href="research.html"><span>01</span><b>Halal Research</b><i>↗</i></a>
+    <a href="training.html"><span>02</span><b>Training</b><i>↗</i></a>
+    <a href="certification.html"><span>03</span><b>Certification</b><i>↗</i></a>
+    <a href="index.html#laboratory-testing"><span>04</span><b>Lab Testing</b><i>↗</i></a>
+    <a href="library.html"><span>05</span><b>Halal Digital Library</b><i>↗</i></a>
+  </div>
 </section>
 <section class="intro section" id="about"><div class="section-kicker">WHO WE ARE</div><div class="intro-grid"><h2>A bridge between <em>Halal knowledge</em> and industry practice.</h2><p>HalalBridge is a unified platform for people and organisations seeking clear answers, practical learning, product-testing connections and reliable guidance across the Halal food ecosystem. We bring Shariah insight, technical understanding and standards-based thinking together.</p></div></section>
 <section class="departments section" id="services"><div class="section-heading"><div><div class="section-kicker">OUR SERVICES</div><h2>Expertise for every<br><em>stage of your journey.</em></h2></div><p>Explore our core services and connect with the right expertise for your requirement.</p></div>
@@ -124,4 +143,4 @@
 <script src="admin-config.js"></script>
 <script src="standards.js"></script>
 <script src="script.js"></script>
-</body></html>
+<script src="script.js?v=hero-slider-1"></script>\n</body></html>
