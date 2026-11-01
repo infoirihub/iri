@@ -11,7 +11,7 @@ inquiryForm.addEventListener('input',updateWhatsAppLink);
 inquiryForm.addEventListener('change',updateWhatsAppLink);
 function updateWhatsAppLink(){
   const data=Object.fromEntries(new FormData(inquiryForm).entries());
-  const message='HalalBridge enquiry\\nName: '+(data.name||'')+'\\nEmail: '+(data.email||'')+'\\nCompany: '+(data.company||'')+'\\nDepartment: '+(data.department||'')+'\\nService: '+(data.service||'')+'\\nProduct / sample: '+(data.product_name||'')+'\\nPreferred laboratory: '+(data.preferred_laboratory||'')+'\\nRequired test: '+(data.required_test||'')+'\\nPreferred city: '+(data.preferred_city||'')+'\\nStandard: '+(data.standard||'')+'\\nPhone: '+(data.phone||'')+'\\nMessage: '+(data.message||'');
+  const message='HalalBridge enquiry\nName: '+(data.name||'')+'\nEmail: '+(data.email||'')+'\nCompany: '+(data.company||'')+'\nDepartment: '+(data.department||'')+'\nService: '+(data.service||'')+'\nProduct / sample: '+(data.product_name||'')+'\nPreferred laboratory: '+(data.preferred_laboratory||'')+'\nRequired test: '+(data.required_test||'')+'\nPreferred city: '+(data.preferred_city||'')+'\nStandard: '+(data.standard||'')+'\nPhone: '+(data.phone||'')+'\nMessage: '+(data.message||'');
   whatsappLink.href='https://wa.me/92311211122291?text='+encodeURIComponent(message);
 }
 inquiryForm.addEventListener('submit',async event=>{
