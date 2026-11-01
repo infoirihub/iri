@@ -166,3 +166,28 @@ footer{border-top:1px solid var(--line)}
 @media(max-width:850px){.hero-carousel{padding:42px 26px 105px;min-height:640px}.hero-slides{min-height:450px}.hero-slide{grid-template-columns:1fr;gap:22px}.hero-slide-copy{max-width:100%}.hero-art{height:190px}.hero-art-symbol{font-size:90px}.hero-control{top:43%}.hero-prev{left:7px}.hero-next{right:7px}.hero-pagination{bottom:83px}.hero-service-strip{grid-template-columns:repeat(5,minmax(130px,1fr));overflow-x:auto}.hero-service-strip a{padding:10px;min-height:65px}.hero-service-strip b{font-size:10px}}
 @media(max-width:520px){.hero-carousel{padding:32px 22px 105px;min-height:620px}.hero-slides{min-height:450px}.hero-slide-copy h1{font-size:43px}.hero-slide-copy .hero-lead{font-size:13px}.hero-art{height:175px}.hero-control{width:34px;height:34px;font-size:22px}.hero-service-strip{left:0;right:0}.hero-service-strip a{min-width:125px}.hero-pagination{bottom:83px}}
 @media(prefers-reduced-motion:reduce){.hero-slide,.hero-pagination button{transition:none}}
+
+
+/* Active carousel motion and slide entrance effects */
+.hero-carousel{isolation:isolate}
+.hero-slides{min-height:390px}
+.hero-slide{pointer-events:none;will-change:opacity,transform}
+.hero-slide.is-active{pointer-events:auto;z-index:1}
+.hero-slide.is-active .hero-slide-copy>*{animation:heroCopyEnter .72s both}
+.hero-slide.is-active .hero-slide-copy>*:nth-child(2){animation-delay:.08s}
+.hero-slide.is-active .hero-slide-copy>*:nth-child(3){animation-delay:.16s}
+.hero-slide.is-active .hero-slide-copy>*:nth-child(4){animation-delay:.24s}
+.hero-slide.is-active .hero-art{animation:heroArtEnter .9s cubic-bezier(.2,.75,.25,1) both}
+.hero-art:before{animation:heroOrbit 18s linear infinite}
+.hero-art:after{animation:heroOrbit 13s linear infinite reverse}
+.hero-pagination button{position:relative}
+.hero-pagination button.is-active:after{content:"";position:absolute;inset:-4px;border:1px solid rgba(183,138,45,.45);border-radius:10px;animation:heroDotPulse 1.8s ease-out infinite}
+@keyframes heroCopyEnter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroArtEnter{from{opacity:0;transform:translateX(28px) scale(.97)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes heroOrbit{to{transform:rotate(360deg)}}
+@keyframes heroDotPulse{0%{transform:scale(.85);opacity:.8}100%{transform:scale(1.45);opacity:0}}
+@media(max-width:850px){.hero-slides{min-height:450px}}
+@media(prefers-reduced-motion:reduce){
+ .hero-slide.is-active .hero-slide-copy>*,.hero-slide.is-active .hero-art,.hero-art:before,.hero-art:after,.hero-pagination button.is-active:after{animation:none!important}
+ .hero-slide{transition:none!important}
+}
