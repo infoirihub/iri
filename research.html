@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Ask a Fatwa or find the Halal status of a product through HalalBridge.">
+<meta name="description" content="Ask a Fatwa or search verified Halal product status records through HalalBridge.">
 <title>Halal Research | HalalBridge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
@@ -10,17 +10,17 @@
 .detail-hero{padding:72px 7%;background:linear-gradient(120deg,#eff7f1,#dcece2)}.detail-hero h1{font-size:clamp(40px,6vw,62px);max-width:800px}.detail-hero p{max-width:720px;line-height:1.8;color:#63746e}
 .detail-body{padding:52px 7%}.research-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:25px}
 .option-card{display:block;padding:30px;border:1px solid #e1e9e2;border-radius:16px;background:#fff;text-decoration:none;transition:transform .2s,box-shadow .2s}.option-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px #173d2812}.option-card h2{color:#075744;margin:12px 0}.option-card p{font-size:14px;line-height:1.8;color:#63746e}.option-number{font-size:12px;font-weight:800;color:#b78a2d;letter-spacing:1px}
-.detail-panel{max-width:850px;margin:44px 0 0;padding:28px;border:1px solid #e1e9e2;border-radius:16px;background:#fff;scroll-margin-top:30px}.detail-panel h2{color:#075744}.detail-form label{display:block;font-size:12px;font-weight:700;color:#31564b;margin:0 0 14px}.detail-form input,.detail-form select,.detail-form textarea{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid #dce5de;border-radius:9px;font:inherit;font-size:13px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.detail-note{font-size:12px;line-height:1.8;color:#63746e}.search-row{display:flex;gap:10px}.search-row input{flex:1;min-width:0;padding:13px;border:1px solid #dce5de;border-radius:9px;font:inherit}.search-result{margin-top:16px;padding:16px;border-radius:10px;background:#f2f6f2;color:#31564b;font-size:14px;line-height:1.8}
-@media(max-width:760px){.research-options{grid-template-columns:1fr}.detail-hero{padding:55px 6%}.detail-body{padding:42px 6%}.form-row{grid-template-columns:1fr}.search-row{flex-direction:column}}
+.detail-panel{max-width:1000px;margin:44px 0 0;padding:28px;border:1px solid #e1e9e2;border-radius:16px;background:#fff;scroll-margin-top:30px}.detail-panel h2{color:#075744}.detail-form label{display:block;font-size:12px;font-weight:700;color:#31564b;margin:0 0 14px}.detail-form input,.detail-form select,.detail-form textarea{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid #dce5de;border-radius:9px;font:inherit;font-size:13px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.detail-note{font-size:12px;line-height:1.8;color:#63746e}.search-row{display:flex;gap:10px}.search-row input{flex:1;min-width:0;padding:13px;border:1px solid #dce5de;border-radius:9px;font:inherit}.search-result{margin-top:16px;color:#31564b;font-size:14px;line-height:1.8}.phs-record{padding:20px;margin:14px 0;border:1px solid #e1e9e2;border-radius:12px;background:#fbfdfb}.phs-record h3{margin:0 0 12px;color:#075744}.phs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.phs-field{padding:10px;background:#f1f6f2;border-radius:8px;overflow-wrap:anywhere}.phs-field strong{display:block;font-size:11px;color:#687a70;text-transform:uppercase;letter-spacing:.4px}.phs-field span{display:block;margin-top:4px;font-size:13px;color:#183e32}.phs-status{display:inline-block;padding:6px 10px;border-radius:20px;background:#e8f2e9;font-size:12px;font-weight:800;color:#075744}.phs-status.warning{background:#fff3dc;color:#855b12}.phs-source{font-size:12px;margin-top:12px}.phs-source a{color:#075744}.phs-empty{padding:16px;border-radius:10px;background:#f2f6f2}.phs-toolbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:14px}
+@media(max-width:760px){.research-options{grid-template-columns:1fr}.detail-hero{padding:55px 6%}.detail-body{padding:42px 6%}.form-row,.phs-grid{grid-template-columns:1fr}.search-row{flex-direction:column}}
 </style></head>
 <body>
 <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">H</span><span><strong>Halal<span>Bridge</span></strong><small>RESEARCH • TRAINING • CERTIFICATION • TESTING</small></span></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button><nav class="nav"><a href="index.html">Home</a><a href="index.html#about">About</a><a class="active" href="research.html">Halal Research</a><a href="training.html">Training</a><a href="certification.html">Certification</a><a href="index.html#laboratory-testing">Lab Testing</a><a href="library.html">Halal Digital Library</a><a class="nav-cta" href="index.html#contact">Contact ↗</a></nav></header>
 <main>
-<section class="detail-hero"><div class="section-kicker">HALAL RESEARCH</div><h1>Halal guidance and <em>product search.</em></h1><p>Choose one of the two services below to submit a Shariah question or check whether a product has a verified Halal status record.</p></section>
+<section class="detail-hero"><div class="section-kicker">HALAL RESEARCH</div><h1>Halal guidance and <em>product search.</em></h1><p>Choose one of the two services below to submit a Shariah question or search product-specific Halal certification records.</p></section>
 <section class="detail-body" id="research-options"><div class="section-kicker">OUR SERVICES</div><h2>Halal Research <em>Services</em></h2>
 <div class="research-options">
 <a class="option-card" href="#ask-fatwa"><span class="option-number">01 / SHARIAH GUIDANCE</span><h2>Ask Fatwa →</h2><p>Submit your question about Halal and Haram, ingredients, food processing or contemporary Shariah matters for review.</p></a>
-<a class="option-card" href="#find-phs"><span class="option-number">02 / PRODUCT HALAL STATUS</span><h2>Find PHS →</h2><p>Search by product or brand name to check whether a verified Halal status record is available.</p></a>
+<a class="option-card" href="#find-phs"><span class="option-number">02 / PRODUCT HALAL STATUS</span><h2>Find PHS →</h2><p>Search by product, brand, barcode or product number to view available verified certification records.</p></a>
 </div>
 <section class="detail-panel" id="ask-fatwa"><div class="section-kicker">ASK FATWA</div><h2>Submit your Shariah Question</h2><p class="detail-note">Please provide clear details so the question can be reviewed appropriately.</p>
 <form class="detail-form" action="https://formsubmit.co/contacthalalbridge@gmail.com" method="POST"><input type="hidden" name="_subject" value="HalalBridge — Ask Fatwa"><input type="hidden" name="Department" value="Fatwa Request">
@@ -28,15 +28,50 @@
 <label>Question category<select name="category"><option>Halal / Haram</option><option>Ingredients and additives</option><option>Food processing</option><option>Islamic finance</option><option>Other Shariah matter</option></select></label>
 <label>Subject<input name="subject" required></label><label>Your question<textarea name="question" rows="5" required></textarea></label><label>Relevant product / ingredient details (if applicable)<textarea name="product_details" rows="3"></textarea></label>
 <button class="button primary" type="submit">Submit Fatwa Request →</button><p class="detail-note">Submission is for review and does not itself constitute a formal fatwa or certification decision.</p></form></section>
-<section class="detail-panel" id="find-phs"><div class="section-kicker">FIND PHS</div><h2>Product Halal Status Search</h2><p class="detail-note">Enter the product or brand name below. Search results will be shown only when a verified record is available in the database.</p>
-<form id="phs-search" class="search-row"><input id="phs-query" type="search" placeholder="Enter product or brand name" aria-label="Product or brand name" required><button class="button primary" type="submit">Search →</button></form>
+<section class="detail-panel" id="find-phs"><div class="section-kicker">FIND PHS</div><h2>Product Halal Status Search</h2><p class="detail-note">Search by product name, brand, product number, barcode or company. Only published records that have passed the registry's verification checks will be returned.</p>
+<form id="phs-search" class="search-row"><input id="phs-query" type="search" placeholder="Product, brand, product no., barcode or company" aria-label="Search Halal product records" required><button class="button primary" id="phs-submit" type="submit">Search →</button></form>
 <div id="phs-result" class="search-result" role="status" aria-live="polite" hidden></div>
-<p class="detail-note">This is an initial search interface. The verified PHS database has not yet been connected. If no record is available, this does not mean that the product is Halal or Haram.</p></section>
+<p class="detail-note">A missing record does not mean a product is Halal or Haram. Product-level status requires current evidence for the specific product and certificate. Certification-body recognition alone is not product certification.</p></section>
 </section>
 </main>
 <footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">H</span><span><strong>Halal<span>Bridge</span></strong><small>RESEARCH • TRAINING • CERTIFICATION • TESTING</small></span></a><p>Connecting Halal knowledge, industry and standards.</p><small>© <span id="year"></span> HalalBridge.</small></footer>
-<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="admin-config.js"></script><script src="script.js"></script>
 <script>
-document.getElementById('phs-search').addEventListener('submit',function(event){event.preventDefault();var query=document.getElementById('phs-query').value.trim();var result=document.getElementById('phs-result');if(!query)return;result.hidden=false;result.textContent='Verification required for “'+query+'”. No verified Halal status record is currently available. Please contact HalalBridge for confirmation. No result must not be interpreted as Halal or Haram.';});
+(function(){
+ const form=document.getElementById('phs-search'), input=document.getElementById('phs-query'), result=document.getElementById('phs-result'), button=document.getElementById('phs-submit');
+ const esc=value=>String(value??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const field=(label,value)=>'<div class="phs-field"><strong>'+esc(label)+'</strong><span>'+esc(value||'Not recorded')+'</span></div>';
+ const link=(label,url)=>url?'<div class="phs-source"><a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+esc(label)+' ↗</a></div>':'';
+ function render(rows){
+   if(!rows.length){result.innerHTML='<div class="phs-empty"><strong>No verified product record found.</strong><br>This search returned no published, verified product-specific certificate record. This is not a Halal or Haram ruling.</div>';return;}
+   result.innerHTML=rows.map(r=>{
+     const verified=r.halal_status==='Verified Halal';
+     const fields=[
+       field('Product name',r.product_name),field('Product / model number',r.product_number||r.barcode_gtin),
+       field('Company',r.company_name+(r.company_trading_name?' ('+r.company_trading_name+')':'')),
+       field('Country',r.country_of_origin+' / Company: '+r.company_country),
+       field('Basic ingredients',r.basic_ingredients||r.ingredients_declared),
+       field('Critical ingredients',r.critical_ingredients),
+       field('Certification body',r.certification_body+(r.certification_body_acronym?' ('+r.certification_body_acronym+')':'')),
+       field('Certificate number',r.certificate_number),field('Certificate scope',r.certificate_scope),
+       field('Certificate issue date',r.issue_date),field('Certificate expiry date',r.expiry_date),
+       field('Last evidence check',r.evidence_checked_at)
+     ].join('');
+     return '<article class="phs-record"><h3>'+esc(r.product_name)+' <span class="phs-status '+(verified?'':'warning')+'">'+esc(r.halal_status)+'</span></h3><div class="phs-grid">'+fields+'</div>'+link('Official certificate verification',r.official_verification_url)+link('Certificate document',r.certificate_url)+link('Product source',r.product_source_url)+'</article>';
+   }).join('');
+ }
+ form.addEventListener('submit',async event=>{
+   event.preventDefault();const query=input.value.trim();if(!query)return;
+   const config=window.HALALBRIDGE_SUPABASE||{};
+   if(!config.url||!config.anonKey||!window.supabase){result.hidden=false;result.innerHTML='<div class="phs-empty"><strong>Product registry is not connected yet.</strong><br>The secure Supabase database must be configured and the PHS schema and verified records must be loaded before live searches can run.</div>';return;}
+   button.disabled=true;button.textContent='Searching…';result.hidden=false;result.textContent='Searching verified records…';
+   try{
+     const client=window.supabase.createClient(config.url,config.anonKey);
+     const {data,error}=await client.rpc('phs_search_products',{search_term:query});
+     if(error)throw error;render(data||[]);
+   }catch(error){result.innerHTML='<div class="phs-empty"><strong>Search could not be completed.</strong><br>The PHS database may not yet be configured. Please contact HalalBridge for manual verification.</div>';}
+   finally{button.disabled=false;button.textContent='Search →';}
+ });
+})();
 </script>
 </body></html>
