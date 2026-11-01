@@ -162,3 +162,7 @@ const standardsCatalog=[
  }
  search.addEventListener('input',render); render();
 })();
+
+
+// Expose the curated catalogue for the public training and certification explorers.
+window.standardsCatalog = standardsCatalog;
