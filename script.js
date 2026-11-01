@@ -225,3 +225,30 @@ if (inquiryForm) {
 
   filterLabs();
 })();
+
+/* Accessible five-service hero slider */
+(function(){
+ const root=document.querySelector('.hero-carousel');
+ if(!root)return;
+ const slides=[...root.querySelectorAll('.hero-slide')];
+ const dots=[...root.querySelectorAll('.hero-pagination button')];
+ const previous=root.querySelector('.hero-prev');
+ const next=root.querySelector('.hero-next');
+ if(!slides.length)return;
+ let active=0,timer=null;
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function show(index){
+  active=(index+slides.length)%slides.length;
+  slides.forEach((slide,i)=>{const current=i===active;slide.classList.toggle('is-active',current);slide.setAttribute('aria-hidden',String(!current));});
+  dots.forEach((dot,i)=>{const current=i===active;dot.classList.toggle('is-active',current);if(current)dot.setAttribute('aria-current','true');else dot.removeAttribute('aria-current');});
+ }
+ function stop(){if(timer){window.clearInterval(timer);timer=null;}}
+ function start(){if(reduced)return;stop();timer=window.setInterval(()=>show(active+1),6000);}
+ previous?.addEventListener('click',()=>{show(active-1);start();});
+ next?.addEventListener('click',()=>{show(active+1);start();});
+ dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);start();}));
+ root.addEventListener('mouseenter',stop);root.addEventListener('mouseleave',start);
+ root.addEventListener('focusin',stop);root.addEventListener('focusout',start);
+ document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+ show(0);start();
+})();
