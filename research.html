@@ -3,12 +3,107 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="HalalBridge Halal Research: Ask a Researcher, Halal Articles, and Halal Theses & Dissertations."><title>Halal Research | HalalBridge</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
 <style>
 .detail-hero{padding:82px 7%;background:linear-gradient(120deg,#eff7f1,#dcece2)}.detail-hero h1{font-size:clamp(42px,6vw,66px);max-width:850px}.detail-hero p{max-width:760px;line-height:1.9;color:#63746e}.detail-body{padding:64px 7%}.detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:24px}.detail-card{padding:25px;border:1px solid #e4eae4;border-radius:14px;background:#fff}.detail-card h3{color:#075744;margin:8px 0}.detail-card p,.detail-card li{font-size:13px;line-height:1.85;color:#63746e}.detail-card ul{padding-left:18px}.detail-number{font-size:12px;font-weight:800;color:#b78a2d;letter-spacing:1px}.detail-form{max-width:850px;padding:26px;border:1px solid #e4eae4;border-radius:15px;background:#fff;margin-top:24px}.detail-form label{display:block;font-size:12px;font-weight:700;color:#31564b;margin:0 0 14px}.detail-form input,.detail-form select,.detail-form textarea{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid #dce5de;border-radius:9px;font:inherit;font-size:13px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.detail-note{font-size:12px;line-height:1.8;color:#63746e}.category-list{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.category-list span{padding:8px 12px;background:#edf4ee;border-radius:20px;color:#075744;font-size:12px;font-weight:700}.detail-cta{margin:18px 7% 72px;padding:34px;border-radius:18px;background:#063f34;color:#fff}.detail-cta p{color:#d0dfd8;line-height:1.8}@media(max-width:760px){.detail-grid{grid-template-columns:1fr}.detail-hero{padding:60px 6%}.detail-body{padding:48px 6%}.form-row{grid-template-columns:1fr}.detail-cta{margin:15px 6% 55px}}
+
+/* Halal Research: Ask Fatwa and Product Halal Status portal */
+.research-portal{background:#fbfcf9}
+.research-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:28px 0 10px}
+.research-choice{position:relative;display:grid;grid-template-columns:42px 54px 1fr 20px;align-items:center;gap:15px;width:100%;min-height:142px;padding:24px;text-align:left;border:1px solid #dce8df;border-radius:16px;background:linear-gradient(140deg,#fff,#f1f7f2);color:#123f34;cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.research-choice:hover,.research-choice[aria-expanded="true"]{transform:translateY(-3px);border-color:#9dbda8;box-shadow:0 16px 34px rgba(10,55,39,.09)}
+.choice-number{align-self:start;color:#a77a24;font-size:10px;font-weight:800;letter-spacing:1px}
+.choice-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#e5f0e8;color:#075744;font-size:27px}
+.choice-copy strong,.choice-copy small{display:block}
+.choice-copy strong{font-size:19px;color:#063f34}
+.choice-copy small{margin-top:6px;font-size:12px;line-height:1.6;color:#63746e}
+.choice-arrow{color:#a77a24;font-size:20px}
+.research-panel{margin-top:28px;padding:28px;border:1px solid #e1e9e2;border-radius:17px;background:#f7faf7;scroll-margin-top:110px}
+.panel-heading{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.panel-heading h2{margin:5px 0 8px}
+.panel-close{width:36px;height:36px;flex:0 0 36px;border:1px solid #dce5de;border-radius:50%;background:#fff;color:#31564b;font-size:23px;cursor:pointer}
+.detail-form{margin-top:20px}
+.phs-search{max-width:850px;margin:22px 0 0;padding:22px;border:1px solid #e1e9e2;border-radius:13px;background:#fff}
+.phs-search label{display:block;margin-bottom:9px;font-size:12px;font-weight:700;color:#31564b}
+.phs-search-row{display:flex;gap:10px}
+.phs-search-row input{flex:1;min-width:0;padding:13px;border:1px solid #dce5de;border-radius:9px;font:inherit;font-size:13px}
+.phs-result{max-width:850px;margin-top:16px;padding:19px 21px;border:1px solid #e3d7b9;border-left:4px solid #b78a2d;border-radius:10px;background:#fffdf7}
+.phs-result strong{display:block;color:#173f34;font-size:14px}
+.phs-result p{margin:7px 0 0;color:#63746e;font-size:12px;line-height:1.75}
+.phs-disclaimer{max-width:850px;margin-top:17px}
+.phs-disclaimer strong{color:#173f34}
+@media(max-width:760px){.research-choice-grid{grid-template-columns:1fr}.research-choice{min-height:120px;padding:19px;grid-template-columns:28px 48px 1fr 18px}.choice-copy strong{font-size:17px}.research-panel{padding:19px}.phs-search-row{flex-direction:column}.phs-search-row .button{align-self:flex-start}}
+@media(prefers-reduced-motion:reduce){.research-choice{transition:none}}
 </style></head>
 <body><header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">H</span><span><strong>Halal<span>Bridge</span></strong><small>RESEARCH • TRAINING • CERTIFICATION • TESTING</small></span></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button><nav class="nav"><a href="index.html">Home</a><a href="index.html#about">About</a><a class="active" href="research.html">Halal Research</a><a href="training.html">Training</a><a href="certification.html">Certification</a><a href="index.html#laboratory-testing">Lab Testing</a><a href="library.html">Halal Digital Library</a><a class="nav-cta" href="index.html#contact">Contact ↗</a></nav></header>
 <main><section class="detail-hero"><div class="section-kicker">HALAL RESEARCH</div><h1>Research, inquiry and <em>scholarly insight.</em></h1><p>A dedicated space for Shariah and technical Halal questions, reliable research articles, and academic theses related to the Halal industry, Islamic jurisprudence and food sciences.</p><a class="button primary" href="#ask-researcher">Ask a Researcher →</a></section>
-<section class="detail-body" id="ask-researcher"><div class="section-kicker">01 / FATWA & INQUIRY PORTAL</div><h2>Ask a <em>Researcher.</em></h2><p class="detail-note">Submit questions concerning Shariah and technical Halal matters, including ingredient sources, food processing, additives, manufacturing methods and contemporary Halal issues.</p><div class="detail-grid"><article class="detail-card"><span class="detail-number">A1</span><h3>Shariah & Fiqh</h3><p>Questions involving Islamic legal principles, contemporary applications and scholarly analysis.</p></article><article class="detail-card"><span class="detail-number">A2</span><h3>Ingredients & Food Processing</h3><p>Ingredient origins, additives, enzymes, processing aids, production methods and documentation.</p></article><article class="detail-card"><span class="detail-number">A3</span><h3>Answered Inquiries Archive</h3><p>Key questions and approved scholarly responses will be organised into a searchable archive as reviewed answers are published.</p><p class="detail-note">Only reviewed and authorised responses will be published.</p></article></div>
-<form class="detail-form" action="https://formsubmit.co/contacthalalbridge@gmail.com" method="POST"><input type="hidden" name="_subject" value="HalalBridge — Ask a Researcher"><input type="hidden" name="Department" value="Halal Research Inquiry"><div class="form-row"><label>Full name<input name="name" required></label><label>Email address<input type="email" name="email" required></label></div><label>Inquiry type<select name="inquiry_type"><option>Shariah / Fiqh</option><option>Ingredients / additives</option><option>Food processing / manufacturing</option><option>Halal standards</option><option>Contemporary Halal issue</option></select></label><label>Subject<input name="subject" required></label><label>Your question<textarea name="message" rows="5" required></textarea></label><label>Relevant product / ingredient details (optional)<textarea name="technical_details" rows="3"></textarea></label><button class="button primary" type="submit">Submit Inquiry →</button><p class="detail-note">Submissions are received for research review. A submitted inquiry is not automatically a formal fatwa or certification decision.</p></form></section>
-<section class="detail-body" style="background:#f7f8f3" id="articles"><div class="section-kicker">02 / RESEARCH PUBLICATIONS</div><h2>Halal <em>Articles.</em></h2><p class="detail-note">Research articles and blogs covering Halal food, supply chains and contemporary industry questions. Articles will be added after editorial and scholarly review.</p><div class="category-list"><span>All Topics</span><span>Ingredients</span><span>Slaughtering</span><span>Food Processing</span><span>Supply Chains</span><span>Cosmetics</span><span>Pharmaceuticals</span><span>Standards & Compliance</span></div><div class="detail-grid"><article class="detail-card"><span class="detail-number">TOPIC 01</span><h3>Ingredients</h3><p>Gelatin, enzymes, emulsifiers, flavours, colours and other ingredients used in food manufacturing.</p></article><article class="detail-card"><span class="detail-number">TOPIC 02</span><h3>Slaughtering & Supply Chains</h3><p>Halal slaughter requirements, segregation, traceability, storage and distribution.</p></article><article class="detail-card"><span class="detail-number">TOPIC 03</span><h3>Contemporary Applications</h3><p>Research on cosmetics, pharmaceuticals, food technologies and emerging Halal questions.</p></article></div><p class="detail-note">The category structure is in place. The article archive and category filtering will become active as publications are uploaded.</p></section>
-<section class="detail-body" id="theses"><div class="section-kicker">03 / ACADEMIC REPOSITORY</div><h2>Halal Theses & <em>Dissertations.</em></h2><p class="detail-note">A repository for M.Phil and Ph.D level research on the Halal industry, Shariah, Islamic jurisprudence and food sciences.</p><div class="detail-grid"><article class="detail-card"><h3>Academic Abstracts</h3><p>Each record will include the research title, abstract, keywords, degree level and research area.</p></article><article class="detail-card"><h3>Author & Institution</h3><p>Author names, university or research institution, supervisor details where authorised, and year of completion.</p></article><article class="detail-card"><h3>View & Download</h3><p>View or download full papers where authors or institutions have granted the necessary access and copyright permission.</p></article></div><p class="detail-note">Repository records and downloadable files will be published in phases after metadata and permissions are verified.</p></section>
-<section class="detail-cta"><h2>Contribute to Halal knowledge.</h2><p>Submit a research inquiry, share a scholarly article, or recommend an academic thesis for the Halal Research collection.</p><a class="button" href="index.html#contact">Contact HalalBridge →</a></section></main>
-<footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">H</span><span><strong>Halal<span>Bridge</span></strong><small>RESEARCH • TRAINING • CERTIFICATION • TESTING</small></span></a><p>Connecting Halal knowledge, industry and standards.</p><small>© <span id="year"></span> HalalBridge.</small></footer><script src="script.js"></script></body></html>
+<section class="detail-body research-portal" id="research-options">
+  <div class="section-kicker">01 / HALAL RESEARCH SERVICES</div>
+  <h2>Choose how we can <em>help you.</em></h2>
+  <p class="detail-note">Select a service to submit a Shariah question or check whether a product has a verified Halal status record.</p>
+  <div class="research-choice-grid">
+    <button class="research-choice" type="button" data-open-panel="fatwa-panel" aria-controls="fatwa-panel" aria-expanded="false">
+      <span class="choice-number">01</span><span class="choice-icon" aria-hidden="true">✦</span>
+      <span class="choice-copy"><strong>Ask Fatwa</strong><small>Submit a Shariah question for scholarly review.</small></span><span class="choice-arrow" aria-hidden="true">↗</span>
+    </button>
+    <button class="research-choice" type="button" data-open-panel="phs-panel" aria-controls="phs-panel" aria-expanded="false">
+      <span class="choice-number">02</span><span class="choice-icon" aria-hidden="true">⌕</span>
+      <span class="choice-copy"><strong>Find PHS</strong><small>Search for a product's recorded Halal status.</small></span><span class="choice-arrow" aria-hidden="true">↗</span>
+    </button>
+  </div>
+
+  <div class="research-panel" id="fatwa-panel" hidden>
+    <div class="panel-heading"><div><div class="section-kicker">ASK FATWA</div><h2>Submit your <em>Shariah question.</em></h2><p class="detail-note">Use this form for questions about ingredients, food processing, manufacturing practices and contemporary Halal matters.</p></div><button class="panel-close" type="button" data-close-panel aria-label="Close panel">×</button></div>
+    <form class="detail-form" action="https://formsubmit.co/contacthalalbridge@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="HalalBridge — Ask Fatwa"><input type="hidden" name="Department" value="Ask Fatwa">
+      <div class="form-row"><label>Full name<input name="name" autocomplete="name" required></label><label>Email address<input type="email" name="email" autocomplete="email" required></label></div>
+      <label>Question category<select name="inquiry_type"><option>Shariah / Fiqh</option><option>Ingredients / additives</option><option>Food processing / manufacturing</option><option>Halal standards</option><option>Contemporary Halal issue</option></select></label>
+      <label>Subject<input name="subject" required></label><label>Your question<textarea name="message" rows="5" required></textarea></label>
+      <label>Relevant product / ingredient details (optional)<textarea name="technical_details" rows="3"></textarea></label>
+      <button class="button primary" type="submit">Submit Fatwa Request →</button>
+      <p class="detail-note">Your submission will be received for review. Submitting this form does not itself constitute a formal fatwa, certification decision or approval.</p>
+    </form>
+  </div>
+
+  <div class="research-panel" id="phs-panel" hidden>
+    <div class="panel-heading"><div><div class="section-kicker">PRODUCT HALAL STATUS (PHS)</div><h2>Search a <em>product.</em></h2><p class="detail-note">Enter the product or brand name to check for a verified record in the current directory.</p></div><button class="panel-close" type="button" data-close-panel aria-label="Close panel">×</button></div>
+    <form class="phs-search" id="phs-search-form" role="search">
+      <label for="phs-product-search">Product or brand name</label>
+      <div class="phs-search-row"><input id="phs-product-search" name="product" type="search" placeholder="e.g. product name or brand" required><button class="button primary" type="submit">Search Status →</button></div>
+    </form>
+    <div class="phs-result" id="phs-result" role="status" aria-live="polite" hidden></div>
+    <p class="detail-note phs-disclaimer"><strong>Important:</strong> This initial version only checks for records in the available directory. If no verified record is found, the product's Halal status remains unconfirmed here; this must not be interpreted as either Halal or Haram. Product verification and the supporting evidence will be developed in a later phase.</p>
+  </div>
+</section>
+</main>
+<footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">H</span><span><strong>Halal<span>Bridge</span></strong><small>RESEARCH • TRAINING • CERTIFICATION • TESTING</small></span></a><p>Connecting Halal knowledge, industry and standards.</p><small>© <span id="year"></span> HalalBridge.</small></footer><script>
+(() => {
+  const choices = [...document.querySelectorAll('[data-open-panel]')];
+  const panels = [...document.querySelectorAll('.research-panel')];
+  function closePanels() {
+    panels.forEach(panel => panel.hidden = true);
+    choices.forEach(button => button.setAttribute('aria-expanded','false'));
+  }
+  choices.forEach(button => button.addEventListener('click', () => {
+    const panel = document.getElementById(button.dataset.openPanel);
+    const wasOpen = !panel.hidden;
+    closePanels();
+    if (!wasOpen) {
+      panel.hidden = false;
+      button.setAttribute('aria-expanded','true');
+      panel.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',block:'start'});
+      const firstInput = panel.querySelector('input,textarea,select');
+      if (firstInput) setTimeout(() => firstInput.focus({preventScroll:true}), 250);
+    }
+  }));
+  document.querySelectorAll('[data-close-panel]').forEach(button => button.addEventListener('click', closePanels));
+  const searchForm = document.getElementById('phs-search-form');
+  if (searchForm) searchForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const product = document.getElementById('phs-product-search').value.trim();
+    const result = document.getElementById('phs-result');
+    if (!product) return;
+    result.hidden = false;
+    result.innerHTML = '<strong>Verification required — no verified status record is currently available.</strong><p>Search: <b></b><br>This directory does not currently contain a verified Halal status record for this search. The product must not be assumed Halal or Haram on this basis. Please request a review if you need a documented assessment.</p><p><a class="text-link" href="mailto:contacthalalbridge@gmail.com?subject=' + encodeURIComponent('PHS verification request: ' + product) + '&body=' + encodeURIComponent('Please review the Halal status of this product: ' + product) + '">Request product verification →</a></p>';
+    result.querySelector('p b').textContent = product;
+  });
+})();
+</script>
+<script src="script.js"></script></body></html>
