@@ -210,3 +210,25 @@ begin
 end $$;
 
 grant select on public.phs_public_search to anon, authenticated;
+
+
+-- Search endpoint used by the public PHS interface. It returns only the
+-- published, verified product-level records exposed by the view above.
+create or replace function public.phs_search_products(search_term text)
+returns setof public.phs_public_search
+language sql
+stable
+security invoker
+set search_path = ''
+as $$
+  select v.*
+  from public.phs_public_search v
+  where nullif(trim(search_term), '') is not null
+    and concat_ws(' ', v.product_name, v.brand_name, v.product_number,
+      v.barcode_gtin, v.company_name, v.company_trading_name,
+      v.company_country, v.country_of_origin, v.certificate_number)
+      ilike '%' || replace(replace(trim(search_term), '%', '\\%'), '_', '\\_') || '%'
+  order by v.product_name
+  limit 30;
+$$;
+grant execute on function public.phs_search_products(text) to anon, authenticated;
