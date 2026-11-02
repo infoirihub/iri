@@ -44,12 +44,12 @@
 <div id="phs-result" class="search-result" role="status" aria-live="polite" hidden></div>
 <p class="detail-note">This is an initial search interface. The verified PHS database has not yet been connected. If no record is available, this does not mean that the product is Halal or Haram.</p></section>
 <section class="detail-panel" id="find-e-number"><div class="section-kicker">FIND E NUMBER</div><h2>E Number Halal Status Search</h2><p class="detail-note">Enter an E number, for example E471, E120 or 422. You can also search by additive name, for example gelatine, or by a term, for example emulsifier, to see its explanation. Tap a result to see the full reason.</p>
-<div class="enumber-legend"><span><span class="status-badge status-Halal">Halal</span> Permissible on source grounds</span><span><span class="status-badge status-Haram">Haram</span> Not permissible by default</span><span><span class="status-badge status-Mashbooh">Mashbooh</span> Doubtful — check the source</span></div>
+<div class="enumber-legend"><span><span class="status-badge status-Halal">Halal</span> Permissible on source grounds</span><span><span class="status-badge status-Haram">Haram</span> Source forbidden, no permissible alternative</span><span><span class="status-badge status-Mashbooh">Mashbooh</span> Doubtful — check the source</span></div>
 <form id="enumber-search" class="search-row" style="margin-top:16px"><input id="enumber-query" type="search" placeholder="Enter an E number, e.g. E471" aria-label="E number" required><button class="button primary" type="submit">Search →</button></form>
 <div id="enumber-result" class="search-result enumber-result" role="status" aria-live="polite" hidden></div>
 <div id="enumber-list" class="enumber-list" hidden></div>
 <p class="detail-note" id="enumber-count"></p>
-<p class="detail-note">This is general guidance based on the additive's typical source. It is not a formal fatwa for a specific product. For a Mashbooh code, check whether the product is plant-based, synthetic, or certified halal, or contact the manufacturer. For a Haram code, a specific product can only be accepted if a certified halal or otherwise proven permissible source is shown. Scholars differ on some codes, and those differences are noted in the reason where they matter.</p></section>
+<p class="detail-note">This is general guidance based on the additive's typical source. It is not a formal fatwa for a specific product. Mashbooh means the source can be halal or haram: check whether the product is plant-based, synthetic, fish-based, or certified halal, or contact the manufacturer, because a version from pork or a non-halal animal source would be Haram for that product. Haram is used only where the source itself has no permissible alternative, such as an insect colour. Scholars differ on some codes, and those differences are noted in the reason where they matter.</p></section>
 <section class="detail-panel" id="e-number-terms"><div class="section-kicker">E NUMBER TERMS</div><h2>Terms Explained</h2><p class="detail-note">Search for a term used in E number lists, for example emulsifier, Mashbooh or INS, or browse the full list below. Tap a term to see its explanation.</p>
 <form id="eterm-search" class="search-row" style="margin-top:16px"><input id="eterm-query" type="search" placeholder="Search a term, e.g. emulsifier" aria-label="Term"><button class="button primary" type="submit">Search →</button></form>
 <div id="eterm-result" class="search-result" role="status" aria-live="polite" hidden></div>
@@ -59,8 +59,8 @@
 </main>
 <footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">H</span><span><strong>Halal<span>Bridge</span></strong><small>RESEARCH • TRAINING • CERTIFICATION • TESTING</small></span></a><p>Connecting Halal knowledge, industry and standards.</p><small>© <span id="year"></span> HalalBridge.</small></footer>
 <script src="script.js"></script>
-<script src="e-numbers.js?v=books-462"></script>
-<script src="e-terms.js?v=terms-1"></script>
+<script src="e-numbers.js?v=books-462-fix1"></script>
+<script src="e-terms.js?v=terms-2"></script>
 <script>
 document.getElementById('phs-search').addEventListener('submit',function(event){event.preventDefault();var query=document.getElementById('phs-query').value.trim();var result=document.getElementById('phs-result');if(!query)return;result.hidden=false;result.textContent='Verification required for “'+query+'”. No verified Halal status record is currently available. Please contact HalalBridge for confirmation. No result must not be interpreted as Halal or Haram.';});
 (function(){

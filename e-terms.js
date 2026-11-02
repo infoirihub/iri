@@ -26,7 +26,7 @@ window.HALALBRIDGE_ETERMS = [
 {"term":"Glazing agents","definition":"Additives that give a food a shine or polished surface, for example on a fruit garnish."},
 {"term":"GRAS","definition":"Short for Generally Recognized As Safe, the United States FDA's listing for substances regarded as safe for their intended food use."},
 {"term":"Halal","definition":"Permissible under Islamic law. For an additive, it means its usual source raises no prohibition; a specific product still needs its own source or certification check."},
-{"term":"Haram","definition":"Prohibited under Islamic law. For an additive, it means its usual source is forbidden by default, such as pork, non-halal-slaughtered animal material, or insect flesh."},
+{"term":"Haram","definition":"Prohibited under Islamic law. For an additive, it is used only where its source is forbidden with no permissible alternative, such as pork or insect flesh. An additive whose source can also be halal, such as gelatine, is listed as Mashbooh instead, not Haram."},
 {"term":"Humectants","definition":"Additives that stop a food drying out by holding moisture in it."},
 {"term":"INS","definition":"The International Numbering System for food additives, maintained by Codex Alimentarius; it uses the same numbers as E numbers but without the E prefix, and an INS number alone does not mean an additive is approved in a given country."},
 {"term":"Makrooh","definition":"Disliked or disapproved of, but not clearly forbidden; used in the books for a food some Muslims avoid without it being haram."},
