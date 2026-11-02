@@ -54,7 +54,7 @@
 </main>
 <footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">H</span><span><strong>Halal<span>Bridge</span></strong><small>RESEARCH • TRAINING • CERTIFICATION • TESTING</small></span></a><p>Connecting Halal knowledge, industry and standards.</p><small>© <span id="year"></span> HalalBridge.</small></footer>
 <script src="script.js"></script>
-<script src="e-numbers.js"></script>
+<script src="e-numbers.js?v=expanded-626"></script>
 <script>
 document.getElementById('phs-search').addEventListener('submit',function(event){event.preventDefault();var query=document.getElementById('phs-query').value.trim();var result=document.getElementById('phs-result');if(!query)return;result.hidden=false;result.textContent='Verification required for “'+query+'”. No verified Halal status record is currently available. Please contact HalalBridge for confirmation. No result must not be interpreted as Halal or Haram.';});
 (function(){
@@ -75,7 +75,7 @@ form.addEventListener('submit',function(event){
 event.preventDefault();
 var raw=input.value.trim();if(!raw)return;
 if(!data.length){result.hidden=false;result.textContent='The E number database could not be loaded. Please refresh the page and try again.';return;}
-var code=raw.toUpperCase().replace(/\s+/g,'');
+var code=raw.toUpperCase().replace(/\s+/g,'').replace(/[()]/g,'');
 if(/^\d/.test(code))code='E'+code;
 var exact=data.find(function(x){return x.code.toUpperCase()===code;});
 if(exact){show(exact);return;}
