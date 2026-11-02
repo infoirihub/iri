@@ -252,6 +252,31 @@ footer{border-top:1px solid var(--line)}
   font-size:17px;
   letter-spacing:2.8px;
 }
+.hero-art{
+  display:block;
+}
+.hero-art:before,.hero-art:after{
+  content:none;
+}
+.hero-art-svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:1;
+}
+.hero-art .hero-art-caption{
+  z-index:2;
+  left:18px;
+  right:auto;
+  bottom:18px;
+  max-width:calc(100% - 36px);
+  padding:9px 16px;
+  border:1px solid rgba(240,213,151,.55);
+  border-radius:999px;
+  background:rgba(6,59,50,.72);
+  text-align:left;
+}
 .art-research-hero{background:radial-gradient(circle at 50% 42%,#267a5c 0,#0b5841 48%,#063b32 100%)}
 .art-training-hero{background:radial-gradient(circle at 50% 42%,#9b8248 0,#476747 48%,#123f36 100%)}
 .art-cert-hero{background:radial-gradient(circle at 50% 42%,#b78a2d 0,#55704b 48%,#073d33 100%)}
