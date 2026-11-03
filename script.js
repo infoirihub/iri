@@ -41,7 +41,6 @@ const requiredTest = document.querySelector('[name="required_test"]');
 const inquiryForm = document.getElementById('inquiry-form');
 const feedback = document.getElementById('form-feedback');
 const whatsappLink = document.getElementById('whatsapp-enquiry');
-const whatsappLink2 = document.getElementById('whatsapp-enquiry-2');
 const formSubmitButton = inquiryForm?.querySelector('button[type="submit"]');
 
 const options = {
@@ -86,8 +85,7 @@ function updateWhatsAppLink() {
     '\\nStandard: ' + (data.standard || '') +
     '\\nPhone: ' + (data.phone || '') +
     '\\nMessage: ' + (data.message || '');
-  whatsappLink.href = 'https://wa.me/92311211122291?text=' + encodeURIComponent(message);
-  if (whatsappLink2) whatsappLink2.href = 'https://wa.me/923093873692?text=' + encodeURIComponent(message);
+  whatsappLink.href = 'https://wa.me/923093873692?text=' + encodeURIComponent(message);
 }
 
 if (dept) {
