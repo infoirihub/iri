@@ -238,7 +238,7 @@ if (inquiryForm) {
   if (slides.length < 2) return;
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const interval = 5000;
+  const interval = 3000;
   let active = Math.max(0, slides.findIndex(slide => slide.classList.contains('is-active')));
   let timer = null;
   let paused = false;
