@@ -22,6 +22,9 @@
 .enumber-result{cursor:pointer}.enumber-result h3{color:#075744;margin:4px 0}.enumber-result .enumber-meta{font-size:17px;color:#63746e}
 .enumber-reason{margin-top:14px;padding-top:14px;border-top:1px solid #e1e9e2;font-size:18px;line-height:1.8;color:#31564b}
 .enumber-list{margin-top:16px;display:grid;gap:10px}.enumber-item{display:flex;justify-content:space-between;gap:12px;align-items:center;width:100%;text-align:left;padding:14px 16px;border:1px solid #e1e9e2;border-radius:12px;background:#fff;cursor:pointer;font:inherit;font-size:18px;color:#31564b}.enumber-item:hover{border-color:#075744}.enumber-item strong{color:#075744}
+.eterm-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}.eterm-list .enumber-item{flex-direction:column;align-items:flex-start;justify-content:space-between;gap:8px;height:100%;padding:16px}.eterm-list .enumber-item span:last-child{font-size:17px;color:#63746e}
+@media(max-width:900px){.eterm-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.eterm-list{grid-template-columns:1fr}}
 </style></head>
 <body>
 <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">H</span><span><strong>Halal<span>Bridge</span></strong><small>RESEARCH • TRAINING • CERTIFICATION • TESTING</small></span></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button><nav class="nav"><a href="index.html">Home</a><a href="index.html#about">About</a><a class="active" href="research.html">Halal Research</a><a href="training.html">Training</a><a href="certification.html">Certification</a><a href="index.html#laboratory-testing">Lab Testing</a><a href="library.html">Halal Digital Library</a><a class="nav-cta" href="index.html#contact">Contact ↗</a></nav></header>
@@ -53,7 +56,7 @@
 <section class="detail-panel" id="e-number-terms"><div class="section-kicker">E NUMBER TERMS</div><h2>Terms Explained</h2><p class="detail-note">Search for a term used in E number lists, for example emulsifier, Mashbooh or INS, or browse the full list below. Tap a term to see its explanation.</p>
 <form id="eterm-search" class="search-row" style="margin-top:16px"><input id="eterm-query" type="search" placeholder="Search a term, e.g. emulsifier" aria-label="Term"><button class="button primary" type="submit">Search →</button></form>
 <div id="eterm-result" class="search-result" role="status" aria-live="polite" hidden></div>
-<div id="eterm-list" class="enumber-list"></div>
+<div id="eterm-list" class="enumber-list eterm-list"></div>
 <p class="detail-note" id="eterm-count"></p></section>
 </section>
 </main>
