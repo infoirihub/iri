@@ -34,7 +34,7 @@
 <a class="option-card" href="#find-e-number"><span class="option-number">03 / FOOD ADDITIVES</span><h2>Find E Number →</h2><p>Enter an E number, such as E471, to see whether it is Halal, Haram or Mashbooh, and why.</p></a>
 </div>
 <section class="detail-panel" id="ask-fatwa"><div class="section-kicker">ASK FATWA</div><h2>Submit your Shariah Question</h2><p class="detail-note">Please provide clear details so the question can be reviewed appropriately.</p>
-<form class="detail-form" action="https://formsubmit.co/contacthalalbridge@gmail.com" method="POST"><input type="hidden" name="_subject" value="HalalBridge — Ask Fatwa"><input type="hidden" name="Department" value="Fatwa Request">
+<form class="detail-form" action="https://formsubmit.co/contacthalalbridge@gmail.com" method="POST"><input type="hidden" name="_subject" value="HalalBridge Ask Fatwa"><input type="hidden" name="Department" value="Fatwa Request">
 <div class="form-row"><label>Full name<input name="name" required></label><label>Email address<input type="email" name="email" required></label></div>
 <label>Question category<select name="category"><option>Halal / Haram</option><option>Ingredients and additives</option><option>Food processing</option><option>Islamic finance</option><option>Other Shariah matter</option></select></label>
 <label>Subject<input name="subject" required></label><label>Your question<textarea name="question" rows="5" required></textarea></label><label>Relevant product / ingredient details (if applicable)<textarea name="product_details" rows="3"></textarea></label>
@@ -44,7 +44,7 @@
 <div id="phs-result" class="search-result" role="status" aria-live="polite" hidden></div>
 <p class="detail-note">This is an initial search interface. The verified PHS database has not yet been connected. If no record is available, this does not mean that the product is Halal or Haram.</p></section>
 <section class="detail-panel" id="find-e-number"><div class="section-kicker">FIND E NUMBER</div><h2>E Number Halal Status Search</h2><p class="detail-note">Enter an E number, for example E471, E120 or 422. You can also search by additive name, for example gelatine, or by a term, for example emulsifier, to see its explanation. Tap a result to see the full reason.</p>
-<div class="enumber-legend"><span><span class="status-badge status-Halal">Halal</span> Permissible on source grounds</span><span><span class="status-badge status-Haram">Haram</span> Source forbidden, no permissible alternative</span><span><span class="status-badge status-Mashbooh">Mashbooh</span> Doubtful — check the source</span></div>
+<div class="enumber-legend"><span><span class="status-badge status-Halal">Halal</span> Permissible on source grounds</span><span><span class="status-badge status-Haram">Haram</span> Source forbidden, no permissible alternative</span><span><span class="status-badge status-Mashbooh">Mashbooh</span> Doubtful check the source</span></div>
 <form id="enumber-search" class="search-row" style="margin-top:16px"><input id="enumber-query" type="search" placeholder="Enter an E number, e.g. E471" aria-label="E number" required><button class="button primary" type="submit">Search →</button></form>
 <div id="enumber-result" class="search-result enumber-result" role="status" aria-live="polite" hidden></div>
 <div id="enumber-list" class="enumber-list" hidden></div>
@@ -73,7 +73,7 @@ counts();
 function show(entry){
 list.hidden=true;list.innerHTML='';
 result.hidden=false;
-result.innerHTML='<div><span class="status-badge status-'+esc(entry.status)+'">'+esc(entry.status)+'</span></div><h3>'+esc(entry.code)+' — '+esc(entry.name)+'</h3><p class="enumber-meta">'+esc(entry.category)+'</p><p class="enumber-meta">Tap to see why →</p><p class="enumber-reason" hidden>'+esc(entry.reason)+'</p>';
+result.innerHTML='<div><span class="status-badge status-'+esc(entry.status)+'">'+esc(entry.status)+'</span></div><h3>'+esc(entry.code)+' '+esc(entry.name)+'</h3><p class="enumber-meta">'+esc(entry.category)+'</p><p class="enumber-meta">Tap to see why →</p><p class="enumber-reason" hidden>'+esc(entry.reason)+'</p>';
 var reason=result.querySelector('.enumber-reason');
 result.onclick=function(){reason.hidden=!reason.hidden;};
 }
@@ -94,7 +94,7 @@ list.hidden=false;
 list.innerHTML='';
 matches.forEach(function(entry){
 var b=document.createElement('button');b.type='button';b.className='enumber-item';
-b.innerHTML='<span><strong>'+esc(entry.code)+'</strong> — '+esc(entry.name)+'</span><span class="status-badge status-'+esc(entry.status)+'">'+esc(entry.status)+'</span>';
+b.innerHTML='<span><strong>'+esc(entry.code)+'</strong> '+esc(entry.name)+'</span><span class="status-badge status-'+esc(entry.status)+'">'+esc(entry.status)+'</span>';
 b.addEventListener('click',function(){show(entry);result.scrollIntoView({behavior:'smooth',block:'center'});});
 list.appendChild(b);
 });
