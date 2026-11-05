@@ -24,7 +24,8 @@
 .enumber-reason{margin-top:14px;padding-top:14px;border-top:1px solid #e1e9e2;font-size:18px;line-height:1.8;color:#31564b}
 .enumber-list{margin-top:16px;display:grid;gap:10px}.enumber-item{display:flex;justify-content:space-between;gap:12px;align-items:center;width:100%;text-align:left;padding:14px 16px;border:1px solid #e1e9e2;border-radius:12px;background:#fff;cursor:pointer;font:inherit;font-size:18px;color:#31564b}.enumber-item:hover{border-color:#075744}.enumber-item strong{color:#075744}
 #e-number-terms{max-width:none}
-.eterm-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}.eterm-list .enumber-item{flex-direction:column;align-items:flex-start;justify-content:space-between;gap:8px;height:100%;padding:16px}.eterm-list .enumber-item span:last-child{font-size:17px;color:#63746e}
+.eterm-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}
+.detail-panel{display:none}.detail-panel.open{display:block}.option-card.active{border-color:#075744;box-shadow:0 12px 28px #173d2812}.panel-close{background:none;border:0;padding:0;margin:0 0 10px;font:inherit;font-size:17px;font-weight:800;color:#075744;cursor:pointer}.eterm-list .enumber-item{flex-direction:column;align-items:flex-start;justify-content:space-between;gap:8px;height:100%;padding:16px}.eterm-list .enumber-item span:last-child{font-size:17px;color:#63746e}
 @media(max-width:1200px){.eterm-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:900px){.eterm-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.eterm-list{grid-template-columns:1fr}}
@@ -39,26 +40,26 @@
 <a class="option-card" href="#find-phs"><span class="option-number">02 / PRODUCT HALAL STATUS</span><h2>Find PHS →</h2><p>Search by product or brand name to check whether a verified Halal status record is available.</p></a>
 <a class="option-card" href="#find-e-number"><span class="option-number">03 / FOOD ADDITIVES</span><h2>Find E Number →</h2><p>Enter an E number, such as E471, to see whether it is Halal, Haram or Mashbooh, and why.</p></a>
 </div>
-<section class="detail-panel" id="ask-fatwa"><div class="section-kicker">ASK FATWA</div><h2>Submit your Shariah Question</h2><p class="detail-note">Please provide clear details so the question can be reviewed appropriately.</p>
+<section class="detail-panel" id="ask-fatwa"><button type="button" class="panel-close" data-close-panel>← All services</button><div class="section-kicker">ASK FATWA</div><h2>Submit your Shariah Question</h2><p class="detail-note">Please provide clear details so the question can be reviewed appropriately.</p>
 <form class="detail-form" action="https://formsubmit.co/contacthalalbridge@gmail.com" method="POST"><input type="hidden" name="_subject" value="HalalBridge Ask Fatwa"><input type="hidden" name="Department" value="Fatwa Request">
 <div class="form-row"><label>Full name<input name="name" required></label><label>Email address<input type="email" name="email" required></label></div>
 <label>Question category<select name="category"><option>Halal / Haram</option><option>Ingredients and additives</option><option>Food processing</option><option>Islamic finance</option><option>Other Shariah matter</option></select></label>
 <label>Subject<input name="subject" required></label><label>Your question<textarea name="question" rows="5" required></textarea></label><label>Relevant product / ingredient details (if applicable)<textarea name="product_details" rows="3"></textarea></label>
 <button class="button primary" type="submit">Submit Fatwa Request →</button><p class="detail-note">Submission is for review and does not itself constitute a formal fatwa or certification decision.</p></form></section>
-<section class="detail-panel" id="find-phs"><div class="section-kicker">FIND PHS</div><h2>Product Halal Status Search</h2><p class="detail-note">Enter the product or brand name below. The database holds verified Halal-certified products from Pakistan certification bodies only. Results show the product, company, Halal status, certifying body and a short company introduction.</p>
+<section class="detail-panel" id="find-phs"><button type="button" class="panel-close" data-close-panel>← All services</button><div class="section-kicker">FIND PHS</div><h2>Product Halal Status Search</h2><p class="detail-note">Enter the product or brand name below. The database holds verified Halal-certified products from Pakistan certification bodies only. Results show the product, company, Halal status, certifying body and a short company introduction.</p>
 <form id="phs-search" class="search-row"><input id="phs-query" type="search" placeholder="Enter product or brand name" aria-label="Product or brand name" required><button class="button primary" type="submit">Search →</button></form>
 <div id="phs-result" class="search-result enumber-result" role="status" aria-live="polite" hidden></div>
 <div id="phs-list" class="enumber-list" hidden></div>
 <p class="detail-note" id="phs-count"></p>
 <p class="detail-note">Records were verified on 5 November 2026 from the certifying body’s published certificate or client list. A certificate can expire or be withdrawn, so check the source before relying on a status. If no record is available, this does not mean that the product is Halal or Haram. This search is general guidance, not a fatwa for a specific product.</p></section>
-<section class="detail-panel" id="find-e-number"><div class="section-kicker">FIND E NUMBER</div><h2>E Number Halal Status Search</h2><p class="detail-note">Enter an E number, for example E471, E120 or 422. You can also search by additive name, for example gelatine, or by a term, for example emulsifier, to see its explanation. Tap a result to see the full reason.</p>
+<section class="detail-panel" id="find-e-number"><button type="button" class="panel-close" data-close-panel>← All services</button><div class="section-kicker">FIND E NUMBER</div><h2>E Number Halal Status Search</h2><p class="detail-note">Enter an E number, for example E471, E120 or 422. You can also search by additive name, for example gelatine, or by a term, for example emulsifier, to see its explanation. Tap a result to see the full reason.</p>
 <div class="enumber-legend"><span><span class="status-badge status-Halal">Halal</span> Permissible on source grounds</span><span><span class="status-badge status-Haram">Haram</span> Source forbidden, no permissible alternative</span><span><span class="status-badge status-Mashbooh">Mashbooh</span> Doubtful check the source</span></div>
 <form id="enumber-search" class="search-row" style="margin-top:16px"><input id="enumber-query" type="search" placeholder="Enter an E number, e.g. E471" aria-label="E number" required><button class="button primary" type="submit">Search →</button></form>
 <div id="enumber-result" class="search-result enumber-result" role="status" aria-live="polite" hidden></div>
 <div id="enumber-list" class="enumber-list" hidden></div>
 <p class="detail-note" id="enumber-count"></p>
 <p class="detail-note">This is general guidance based on the additive's typical source. It is not a formal fatwa for a specific product. Mashbooh means the source can be halal or haram: check whether the product is plant-based, synthetic, fish-based, or certified halal, or contact the manufacturer, because a version from pork or a non-halal animal source would be Haram for that product. Haram is used only where the source itself has no permissible alternative, such as an insect colour. Scholars differ on some codes, and those differences are noted in the reason where they matter.</p></section>
-<section class="detail-panel" id="e-number-terms"><div class="section-kicker">E NUMBER TERMS</div><h2>Terms Explained</h2><p class="detail-note">Search for a term used in E number lists, for example emulsifier, Mashbooh or INS, or browse the full list below. Tap a term to see its explanation.</p>
+<section class="detail-panel" id="e-number-terms"><button type="button" class="panel-close" data-close-panel>← All services</button><div class="section-kicker">E NUMBER TERMS</div><h2>Terms Explained</h2><p class="detail-note">Search for a term used in E number lists, for example emulsifier, Mashbooh or INS, or browse the full list below. Tap a term to see its explanation.</p>
 <form id="eterm-search" class="search-row" style="margin-top:16px"><input id="eterm-query" type="search" placeholder="Search a term, e.g. emulsifier" aria-label="Term"><button class="button primary" type="submit">Search →</button></form>
 <div id="eterm-result" class="search-result" role="status" aria-live="polite" hidden></div>
 <div id="eterm-list" class="enumber-list eterm-list"></div>
@@ -71,6 +72,31 @@
 <script src="e-numbers.js?v=books-462-fix1"></script>
 <script src="e-terms.js?v=terms-2"></script>
 <script>
+(function(){
+var panels={'ask-fatwa':['ask-fatwa'],'find-phs':['find-phs'],'find-e-number':['find-e-number','e-number-terms']};
+function openPanel(id,scroll){
+var ids=panels[id];if(!ids)return false;
+document.querySelectorAll('.detail-panel').forEach(function(p){p.classList.remove('open');});
+ids.forEach(function(x){var el=document.getElementById(x);if(el)el.classList.add('open');});
+document.querySelectorAll('.option-card').forEach(function(c){c.classList.toggle('active',c.getAttribute('href')==='#'+id);});
+if(history.replaceState)history.replaceState(null,'','#'+id);
+if(scroll!==false){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
+return true;
+}
+function closeAll(){
+document.querySelectorAll('.detail-panel').forEach(function(p){p.classList.remove('open');});
+document.querySelectorAll('.option-card').forEach(function(c){c.classList.remove('active');});
+if(history.replaceState)history.replaceState(null,'',location.pathname+location.search);
+var opts=document.getElementById('research-options');if(opts)opts.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.querySelectorAll('.option-card').forEach(function(c){
+c.addEventListener('click',function(e){e.preventDefault();openPanel(c.getAttribute('href').slice(1));});
+});
+document.querySelectorAll('[data-close-panel]').forEach(function(b){b.addEventListener('click',closeAll);});
+var hash=(location.hash||'').slice(1);
+if(hash==='e-number-terms')hash='find-e-number';
+openPanel(hash);
+})();
 (function(){
 var data=window.HALALBRIDGE_PHS||[];
 var form=document.getElementById('phs-search');if(!form)return;
