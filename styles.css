@@ -333,3 +333,5 @@ footer{border-top:1px solid var(--line)}
 .mission-vision-card h3{margin:0 0 10px;color:#123f34;font-size:clamp(20px,2vw,25px);line-height:1.25}
 .mission-vision-card p{margin:0;color:#58675f;font-size:18px;line-height:1.75}
 @media(max-width:760px){.mission-vision-grid{grid-template-columns:1fr;gap:14px}.mission-vision-card{padding:22px}}
+
+.brand-logo{height:56px;width:auto;display:block}.footer-brand .brand-logo{height:44px}@media(max-width:800px){.brand-logo{height:44px}.footer-brand .brand-logo{height:38px}}
