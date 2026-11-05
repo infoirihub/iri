@@ -45,10 +45,12 @@
 <label>Question category<select name="category"><option>Halal / Haram</option><option>Ingredients and additives</option><option>Food processing</option><option>Islamic finance</option><option>Other Shariah matter</option></select></label>
 <label>Subject<input name="subject" required></label><label>Your question<textarea name="question" rows="5" required></textarea></label><label>Relevant product / ingredient details (if applicable)<textarea name="product_details" rows="3"></textarea></label>
 <button class="button primary" type="submit">Submit Fatwa Request →</button><p class="detail-note">Submission is for review and does not itself constitute a formal fatwa or certification decision.</p></form></section>
-<section class="detail-panel" id="find-phs"><div class="section-kicker">FIND PHS</div><h2>Product Halal Status Search</h2><p class="detail-note">Enter the product or brand name below. Search results will be shown only when a verified record is available in the database.</p>
+<section class="detail-panel" id="find-phs"><div class="section-kicker">FIND PHS</div><h2>Product Halal Status Search</h2><p class="detail-note">Enter the product or brand name below. The database holds verified Halal-certified products from Pakistan certification bodies only. Results show the product, company, Halal status, certifying body and a short company introduction.</p>
 <form id="phs-search" class="search-row"><input id="phs-query" type="search" placeholder="Enter product or brand name" aria-label="Product or brand name" required><button class="button primary" type="submit">Search →</button></form>
-<div id="phs-result" class="search-result" role="status" aria-live="polite" hidden></div>
-<p class="detail-note">This is an initial search interface. The verified PHS database has not yet been connected. If no record is available, this does not mean that the product is Halal or Haram.</p></section>
+<div id="phs-result" class="search-result enumber-result" role="status" aria-live="polite" hidden></div>
+<div id="phs-list" class="enumber-list" hidden></div>
+<p class="detail-note" id="phs-count"></p>
+<p class="detail-note">Records were verified on 5 November 2026 from the certifying body’s published certificate or client list. A certificate can expire or be withdrawn, so check the source before relying on a status. If no record is available, this does not mean that the product is Halal or Haram. This search is general guidance, not a fatwa for a specific product.</p></section>
 <section class="detail-panel" id="find-e-number"><div class="section-kicker">FIND E NUMBER</div><h2>E Number Halal Status Search</h2><p class="detail-note">Enter an E number, for example E471, E120 or 422. You can also search by additive name, for example gelatine, or by a term, for example emulsifier, to see its explanation. Tap a result to see the full reason.</p>
 <div class="enumber-legend"><span><span class="status-badge status-Halal">Halal</span> Permissible on source grounds</span><span><span class="status-badge status-Haram">Haram</span> Source forbidden, no permissible alternative</span><span><span class="status-badge status-Mashbooh">Mashbooh</span> Doubtful check the source</span></div>
 <form id="enumber-search" class="search-row" style="margin-top:16px"><input id="enumber-query" type="search" placeholder="Enter an E number, e.g. E471" aria-label="E number" required><button class="button primary" type="submit">Search →</button></form>
@@ -65,10 +67,51 @@
 </main>
 <footer><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="images/logo.png" alt="HalalBridge"></a><p>Connecting Halal knowledge, industry and standards.</p><small>© <span id="year"></span> HalalBridge.</small></footer>
 <script src="script.js"></script>
+<script src="phs-products.js?v=phs-1"></script>
 <script src="e-numbers.js?v=books-462-fix1"></script>
 <script src="e-terms.js?v=terms-2"></script>
 <script>
-document.getElementById('phs-search').addEventListener('submit',function(event){event.preventDefault();var query=document.getElementById('phs-query').value.trim();var result=document.getElementById('phs-result');if(!query)return;result.hidden=false;result.textContent='Verification required for “'+query+'”. No verified Halal status record is currently available. Please contact HalalBridge for confirmation. No result must not be interpreted as Halal or Haram.';});
+(function(){
+var data=window.HALALBRIDGE_PHS||[];
+var form=document.getElementById('phs-search');if(!form)return;
+var input=document.getElementById('phs-query'),result=document.getElementById('phs-result'),list=document.getElementById('phs-list'),count=document.getElementById('phs-count');
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fmtExpiry(s){if(!s)return 'Not stated';var p=String(s).split('-');if(p.length===2)return months[+p[1]-1]+' '+p[0];if(p.length===3)return (+p[2])+' '+months[+p[1]-1]+' '+p[0];return s;}
+if(count)count.textContent=data.length+' verified records in the Pakistan database (checked 5 November 2026).';
+function show(entry){
+list.hidden=true;list.innerHTML='';
+result.hidden=false;
+result.innerHTML='<div><span class="status-badge status-Halal">'+esc(entry.status)+'</span></div><h3>'+esc(entry.product)+'</h3><p class="enumber-meta">Company: <strong>'+esc(entry.company)+'</strong></p><p class="enumber-meta">Certified by: '+esc(entry.certifier)+' (Certificate '+esc(entry.cert_no)+')</p><p class="enumber-meta">Certificate valid to: '+esc(fmtExpiry(entry.expiry))+'</p><p>'+esc(entry.intro)+'</p>'+(entry.note?'<p class="enumber-meta">'+esc(entry.note)+'</p>':'')+'<p class="enumber-meta">Source: <a href="'+esc(entry.source)+'" target="_blank" rel="noopener">View certificate / source ↗</a></p>';
+}
+form.addEventListener('submit',function(event){
+event.preventDefault();
+var raw=input.value.trim();if(!raw)return;
+if(!data.length){result.hidden=false;result.textContent='The PHS database could not be loaded. Please refresh the page and try again.';return;}
+var q=raw.toLowerCase();
+var words=q.split(/\s+/).filter(Boolean);
+function hay(e){return (e.product+' '+e.company).toLowerCase();}
+function tokens(s){return s.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);}
+function matchWords(e,ws){var toks=tokens(e.product+' '+e.company);return ws.every(function(w){return toks.some(function(tk){return tk===w||tk.indexOf(w)===0;});});}
+var matches=data.filter(function(e){return matchWords(e,words);});
+if(!matches.length)matches=data.filter(function(e){return hay(e).indexOf(q)!==-1;});
+if(matches.length===1){show(matches[0]);return;}
+if(matches.length){
+result.hidden=false;
+result.innerHTML='<p>'+matches.length+' verified records match “'+esc(raw)+'”. Tap one to see its full details.</p>';
+list.hidden=false;list.innerHTML='';
+matches.slice(0,20).forEach(function(entry){
+var b=document.createElement('button');b.type='button';b.className='enumber-item';
+b.innerHTML='<span><strong>'+esc(entry.product)+'</strong> — '+esc(entry.company)+'</span><span class="status-badge status-Halal">'+esc(entry.status)+'</span>';
+b.addEventListener('click',function(){show(entry);result.scrollIntoView({behavior:'smooth',block:'center'});});
+list.appendChild(b);
+});
+return;
+}
+result.hidden=false;list.hidden=true;list.innerHTML='';
+result.innerHTML='<p>No verified record was found for “'+esc(raw)+'” in the Pakistan database ('+data.length+' records, checked 5 November 2026). This does not mean the product is Halal or Haram. Please check the spelling, try the brand name, or contact HalalBridge for confirmation.</p>';
+});
+})();
 (function(){
 var data=window.HALALBRIDGE_ENUMBERS||[];
 var form=document.getElementById('enumber-search');if(!form)return;
