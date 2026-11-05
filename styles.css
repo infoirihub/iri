@@ -335,3 +335,5 @@ footer{border-top:1px solid var(--line)}
 @media(max-width:760px){.mission-vision-grid{grid-template-columns:1fr;gap:14px}.mission-vision-card{padding:22px}}
 
 .brand-logo{height:56px;width:auto;display:block}.footer-brand .brand-logo{height:44px}@media(max-width:800px){.brand-logo{height:44px}.footer-brand .brand-logo{height:38px}}
+
+.brand-mark-img{width:48px;height:48px;object-fit:contain;border-radius:12px;display:block}.footer-brand .brand-logo{height:56px}@media(max-width:1400px){.site-header{padding:0 3%}.nav{gap:13px}.nav-cta{padding:12px 15px}}@media(max-width:1150px){.nav{gap:10px;font-size:16px}.brand-mark-img{width:44px;height:44px}}
