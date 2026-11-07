@@ -84,6 +84,7 @@ function updateWhatsAppLink() {
     '\\nPreferred city: ' + (data.preferred_city || '') +
     '\\nStandard: ' + (data.standard || '') +
     '\\nPhone: ' + (data.phone || '') +
+    '\\nKeep my details: ' + (data.data_retention || '') +
     '\\nMessage: ' + (data.message || '');
   whatsappLink.href = 'https://wa.me/923093873692?text=' + encodeURIComponent(message);
 }
