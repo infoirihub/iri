@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /iri/admin.html
+Disallow: /iri/platform.html
+
+Sitemap: https://infoirihub.github.io/iri/sitemap.xml

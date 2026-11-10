@@ -108,7 +108,7 @@
     const fields=['request_no','created_at','name','email','company','phone','product_name','preferred_city','preferred_laboratory','required_test','department','service','standard','message','status','internal_notes'];
     const csvCell=value=>{
       let cell=String(value??'');
-      if(/^[\\s]*[=+\\-@]/.test(cell)) cell="'"+cell;
+      if(/^[\s]*[=+\-@]/.test(cell)) cell="'"+cell;
       return '"'+cell.replace(/"/g,'""')+'"';
     };
     const csv=[fields.join(','),...requests.map(r=>fields.map(k=>csvCell(r[k])).join(','))].join('\r\n');
