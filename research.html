@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Ask a Fatwa, find the Halal status of a product, or check an E number through HalalBridge.">
-<title>Halal Research | HalalBridge</title>
+<meta name="description" content="Ask a Fatwa, find the Halal status of a product, or check an E number through Halal Research Web.">
+<title>Halal Research | Halal Research Web</title>
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css?v=hero-fix-1">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css?v=lab-fix-1">
 <style>
 .detail-hero{padding:72px 7%;background:linear-gradient(120deg,#eff7f1,#dcece2)}.detail-hero h1{font-size:clamp(40px,6vw,62px);max-width:800px}.detail-hero p{max-width:720px;line-height:1.8;color:#63746e}
 .detail-body{padding:52px 7%}.research-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:25px}
@@ -31,7 +31,7 @@
 @media(max-width:600px){.eterm-list{grid-template-columns:1fr}}
 </style></head>
 <body>
-<header class="site-header"><a class="brand" href="index.html"><img class="brand-mark-img" src="images/favicon.png" alt=""><span><strong>Halal<span>Bridge</span></strong><small>RESEARCH • TRAINING • CERTIFICATION • TESTING</small></span></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button><nav class="nav"><a href="index.html">Home</a><a href="index.html#about">About</a><a class="active" href="research.html">Halal Research</a><a href="training.html">Training</a><a href="certification.html">Certification</a><a href="index.html#laboratory-testing">Lab Testing</a><a href="library.html">Halal Digital Library</a><a class="nav-cta" href="index.html#contact">Contact ↗</a></nav></header>
+<header class="site-header"><a class="brand" href="index.html"><img class="brand-mark-img" src="images/favicon.png" alt=""><span><strong>Halal <span>Research Web</span></strong><small>RESEARCH • TRAINING • CERTIFICATION • TESTING</small></span></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button><nav class="nav"><a href="index.html">Home</a><a href="index.html#about">About</a><a class="active" href="research.html">Halal Research</a><a href="training.html">Training</a><a href="certification.html">Certification</a><a href="index.html#laboratory-testing">Lab Testing</a><a href="library.html">Halal Digital Library</a><a class="nav-cta" href="index.html#contact">Contact ↗</a></nav></header>
 <main>
 <section class="detail-hero"><div class="section-kicker">HALAL RESEARCH</div><h1>Halal guidance and <em>product search.</em></h1><p>Choose one of the three services below to submit a Shariah question, check whether a product has a verified Halal status record, or check an E number.</p></section>
 <section class="detail-body" id="research-options"><div class="section-kicker">OUR SERVICES</div><h2>Halal Research <em>Services</em></h2>
@@ -41,7 +41,7 @@
 <a class="option-card" href="#find-e-number"><span class="option-number">03 / FOOD ADDITIVES</span><h2>Find E Number →</h2><p>Enter an E number, such as E471, to see whether it is Halal, Haram or Mashbooh, and why.</p></a>
 </div>
 <section class="detail-panel" id="ask-fatwa"><button type="button" class="panel-close" data-close-panel>← All services</button><div class="section-kicker">ASK FATWA</div><h2>Submit your Shariah Question</h2><p class="detail-note">Please provide clear details so the question can be reviewed appropriately.</p>
-<form class="detail-form" action="https://formsubmit.co/contacthalalbridge@gmail.com" method="POST"><input type="hidden" name="_subject" value="HalalBridge Ask Fatwa"><input type="hidden" name="Department" value="Fatwa Request">
+<form class="detail-form" action="https://formsubmit.co/contacthalalbridge@gmail.com" method="POST"><input type="hidden" name="_subject" value="Halal Research Web Ask Fatwa"><input type="hidden" name="Department" value="Fatwa Request">
 <div class="form-row"><label>Full name<input name="name" required></label><label>Email address<input type="email" name="email" required></label></div>
 <label>Question category<select name="category"><option>Halal / Haram</option><option>Ingredients and additives</option><option>Food processing</option><option>Islamic finance</option><option>Other Shariah matter</option></select></label>
 <label>Subject<input name="subject" required></label><label>Your question<textarea name="question" rows="5" required></textarea></label><label>Relevant product / ingredient details (if applicable)<textarea name="product_details" rows="3"></textarea></label>
@@ -66,7 +66,7 @@
 <p class="detail-note" id="eterm-count"></p></section>
 </section>
 </main>
-<footer><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="images/logo.png" alt="HalalBridge"></a><p>Connecting Halal knowledge, industry and standards.</p><p><a href="privacy.html">Privacy Policy</a></p><small>© <span id="year"></span> HalalBridge.</small></footer>
+<footer><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="images/logo.png" alt="Halal Research Web"></a><p>Connecting Halal knowledge, industry and standards.</p><p><a href="privacy.html">Privacy Policy</a></p><small>© <span id="year"></span> Halal Research Web.</small></footer>
 <script src="script.js"></script>
 <script src="phs-products.js?v=phs-1"></script>
 <script src="e-numbers.js?v=books-462-fix1"></script>
@@ -135,7 +135,7 @@ list.appendChild(b);
 return;
 }
 result.hidden=false;list.hidden=true;list.innerHTML='';
-result.innerHTML='<p>No verified record was found for “'+esc(raw)+'” in the Pakistan database ('+data.length+' records, checked 5 November 2026). This does not mean the product is Halal or Haram. Please check the spelling, try the brand name, or contact HalalBridge for confirmation.</p>';
+result.innerHTML='<p>No verified record was found for “'+esc(raw)+'” in the Pakistan database ('+data.length+' records, checked 5 November 2026). This does not mean the product is Halal or Haram. Please check the spelling, try the brand name, or contact Halal Research Web for confirmation.</p>';
 });
 })();
 (function(){
@@ -196,7 +196,7 @@ list.appendChild(b);
 return;
 }
 result.hidden=false;list.hidden=true;list.innerHTML='';
-result.innerHTML='<p>No entry was found for “'+esc(raw)+'” in the E number database, and no term matches it either. This does not mean the additive is Halal or Haram. Please check the code or term, or contact HalalBridge for confirmation.</p>';
+result.innerHTML='<p>No entry was found for “'+esc(raw)+'” in the E number database, and no term matches it either. This does not mean the additive is Halal or Haram. Please check the code or term, or contact Halal Research Web for confirmation.</p>';
 });
 })();
 (function(){

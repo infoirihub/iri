@@ -1,4 +1,4 @@
-// Shared behaviour across the HalalBridge homepage and service detail pages.
+// Shared behaviour across the Halal Research Web homepage and service detail pages.
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 
@@ -73,7 +73,7 @@ function updateServices() {
 function updateWhatsAppLink() {
   if (!inquiryForm || !whatsappLink) return;
   const data = Object.fromEntries(new FormData(inquiryForm).entries());
-  const message = 'HalalBridge enquiry\\nName: ' + (data.name || '') +
+  const message = 'Halal Research Web enquiry\\nName: ' + (data.name || '') +
     '\\nEmail: ' + (data.email || '') +
     '\\nCompany: ' + (data.company || '') +
     '\\nDepartment: ' + (data.department || '') +
@@ -145,13 +145,13 @@ if (inquiryForm) {
       const result = await response.json();
       if (!response.ok || result.success === 'false') {
         if (databaseSaved) {
-          if (feedback) feedback.textContent = 'Your lab request has been safely recorded in the HalalBridge dashboard, but the email notification could not be sent. Please also email contacthalalbridge@gmail.com if urgent.';
+          if (feedback) feedback.textContent = 'Your lab request has been safely recorded in the Halal Research Web dashboard, but the email notification could not be sent. Please also email contacthalalbridge@gmail.com if urgent.';
         } else {
           throw new Error(result.message || 'Email submission failed');
         }
       } else if (feedback) {
         feedback.textContent = databaseSaved
-          ? 'Thank you. Your laboratory request has been recorded and the HalalBridge team has been notified.'
+          ? 'Thank you. Your laboratory request has been recorded and the Halal Research Web team has been notified.'
           : 'Thank you. Your enquiry has been submitted successfully. Our team will contact you soon.';
       }
 

@@ -1,4 +1,4 @@
-# HalalBridge
+# Halal Research Web
 
 **Research • Training • Certification**
 

@@ -1,4 +1,4 @@
-// HalalBridge Find PHS database (Pakistan).
+// Halal Research Web Find PHS database (Pakistan).
 // 62 records, verified live 2026-11-05 from the certifier's published certificate PDFs and certified-client lists
 // (RI&CA and Gitchia Institute of Global Certification) and the certified companies' own pages.
 // An entry is listed as Halal Certified only where the source stated a certificate expiry after 2026-11-05.

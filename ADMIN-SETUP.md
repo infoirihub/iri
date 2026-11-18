@@ -1,4 +1,4 @@
-# HalalBridge Internal Admin System
+# Halal Research Web Internal Admin System
 
 ## What is included
 - `admin.html`, `admin.css`, `admin.js`: responsive, login-protected request dashboard.
@@ -11,7 +11,7 @@ The public website is hosted on GitHub Pages. GitHub Pages is static hosting and
 **Never place a Supabase `service_role` key, database password, SMTP password or other secret in any website JavaScript file.** The Supabase anon/publishable key is intended for browser use only when RLS is correctly enabled.
 
 ## Setup steps
-1. Create a Supabase project for HalalBridge.
+1. Create a Supabase project for Halal Research Web.
 2. Open Supabase SQL Editor and run all of `supabase/schema.sql`.
 3. In Supabase Authentication > Users, create the first administrator account using a dedicated business email.
 4. Copy that Auth user's UUID. In SQL Editor run:

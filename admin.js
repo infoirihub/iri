@@ -113,7 +113,7 @@
     };
     const csv=[fields.join(','),...requests.map(r=>fields.map(k=>csvCell(r[k])).join(','))].join('\r\n');
     const url=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));
-    const a=document.createElement('a');a.href=url;a.download='halalbridge-requests.csv';a.click();URL.revokeObjectURL(url);
+    const a=document.createElement('a');a.href=url;a.download='halal-research-web-requests.csv';a.click();URL.revokeObjectURL(url);
   });
   checkSession();
 })();

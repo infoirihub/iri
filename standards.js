@@ -1,4 +1,4 @@
-/* HalalBridge standards directory: curated entries with official catalogue links where available. */
+/* Halal Research Web standards directory: curated entries with official catalogue links where available. */
 const standardsCatalog=[
 {group:"Pakistan",kind:"National standards body",subtitle:"Pakistan Standards and Quality Control Authority (PSQCA)",url:"https://www.psqca.com.pk/standardization/division/halaal-division/",items:[
 ["PS 3733:2022 (R)","Pakistan Standard General Requirements for Halal Food","Food manufacturing, handling, storage and distribution"],
