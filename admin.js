@@ -59,6 +59,7 @@
     document.getElementById('count-review').textContent=count('Under Review');
     document.getElementById('count-process').textContent=count('In Process');
     document.getElementById('count-completed').textContent=count('Completed');
+    document.getElementById('count-rejected').textContent=count('Rejected');
     if(!filtered.length){rows.innerHTML='<tr><td colspan="7" class="empty">No matching requests found.</td></tr>';return;}
     rows.innerHTML=filtered.map(r=>`<tr>
       <td><strong>HB-${escapeHTML(r.request_no)}</strong><small>${escapeHTML(r.department||'Laboratory Testing')}</small></td>

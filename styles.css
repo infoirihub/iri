@@ -336,6 +336,6 @@ footer{border-top:1px solid var(--line)}
 
 .brand-logo{height:56px;width:auto;display:block}.footer-brand .brand-logo{height:44px}@media(max-width:800px){.brand-logo{height:44px}.footer-brand .brand-logo{height:38px}}
 
-.brand-mark-img{width:48px;height:48px;object-fit:contain;border-radius:12px;display:block}.footer-brand .brand-logo{height:56px}@media(max-width:1400px){.site-header{padding:0 3%}.nav{gap:13px}.nav-cta{padding:12px 15px}}@media(max-width:1150px){.nav{gap:10px;font-size:16px}.brand-mark-img{width:44px;height:44px}}
+.brand-mark-img{width:48px;height:48px;object-fit:contain;border-radius:12px;display:block}.footer-brand .brand-logo{height:56px}@media(max-width:1400px){.site-header{padding:0 3%}.nav{gap:13px}.nav-cta{padding:12px 15px}}@media(max-width:1150px){.site-header{height:72px;padding:0 5%}.menu-toggle{display:block}.nav{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;padding:20px 5%;box-shadow:0 12px 20px #0000000c;align-items:stretch;flex-direction:column;gap:18px}.nav.open{display:flex}.nav-cta{text-align:center}.brand-mark-img{width:44px;height:44px}}
 
 [hidden]{display:none!important}

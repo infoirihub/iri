@@ -89,6 +89,12 @@ function updateWhatsAppLink() {
   whatsappLink.href = 'https://wa.me/923093873692?text=' + encodeURIComponent(message);
 }
 
+const initialDept = new URLSearchParams(location.search).get('dept');
+if (dept && initialDept && options[initialDept]) {
+  dept.value = initialDept;
+  updateServices();
+}
+
 if (dept) {
   dept.addEventListener('change', updateServices);
   document.querySelectorAll('[data-department]').forEach(link => link.addEventListener('click', () => {
