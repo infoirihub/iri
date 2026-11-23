@@ -151,7 +151,7 @@ if (inquiryForm) {
       const result = await response.json();
       if (!response.ok || result.success === 'false') {
         if (databaseSaved) {
-          if (feedback) feedback.textContent = 'Your lab request has been safely recorded in the Halal Research Web dashboard, but the email notification could not be sent. Please also email central.contactdesk@gmail.com if urgent.';
+          if (feedback) feedback.textContent = 'Your lab request has been safely recorded in the Halal Research Web dashboard, but the email notification could not be sent. Please also email halalresearchweb@gmail.com if urgent.';
         } else {
           throw new Error(result.message || 'Email submission failed');
         }
@@ -167,8 +167,8 @@ if (inquiryForm) {
     } catch (error) {
       if (feedback) {
         feedback.textContent = isLabRequest && !databaseSaved && /Database submission failed/.test(error.message)
-          ? 'The admin database could not save this request. Please use WhatsApp or email central.contactdesk@gmail.com so the team can receive it.'
-          : 'We could not submit the form. Please use the WhatsApp option or email central.contactdesk@gmail.com directly.';
+          ? 'The admin database could not save this request. Please use WhatsApp or email halalresearchweb@gmail.com so the team can receive it.'
+          : 'We could not submit the form. Please use the WhatsApp option or email halalresearchweb@gmail.com directly.';
       }
     } finally {
       if (submitButton) {
