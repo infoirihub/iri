@@ -340,7 +340,7 @@ footer{border-top:1px solid var(--line)}
 
 [hidden]{display:none!important}
 
-.art-library{background:linear-gradient(135deg,#e8e4f0,#c9bfe0)}.book{font-size:76px;filter:drop-shadow(0 12px 8px #174f3b25)}
+.art-library{background:linear-gradient(135deg,#e8e4f0,#c9bfe0)}.art-quran{background:linear-gradient(135deg,#e9efe0,#c3d6b0)}.book{font-size:76px;filter:drop-shadow(0 12px 8px #174f3b25)}
 
 /* Header services dropdown */
 .nav-dropdown{position:relative;display:flex;align-items:center;align-self:stretch}
