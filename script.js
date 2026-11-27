@@ -20,6 +20,31 @@ if (toggle && nav) {
   });
 }
 
+/* Header services dropdown: tap to open, tap elsewhere or Escape to close. */
+document.querySelectorAll('.nav-dropdown').forEach(wrapper => {
+  const button = wrapper.querySelector('.nav-dropbtn');
+  if (!button) return;
+  button.addEventListener('click', event => {
+    event.stopPropagation();
+    const isOpen = wrapper.classList.toggle('open');
+    button.setAttribute('aria-expanded', String(isOpen));
+  });
+});
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown.open').forEach(wrapper => {
+    wrapper.classList.remove('open');
+    wrapper.querySelector('.nav-dropbtn')?.setAttribute('aria-expanded', 'false');
+  });
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    document.querySelectorAll('.nav-dropdown.open').forEach(wrapper => {
+      wrapper.classList.remove('open');
+      wrapper.querySelector('.nav-dropbtn')?.setAttribute('aria-expanded', 'false');
+    });
+  }
+});
+
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
