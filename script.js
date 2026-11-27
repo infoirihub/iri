@@ -259,7 +259,7 @@ if (inquiryForm) {
   filterLabs();
 })();
 
-/* Accessible five-service hero carousel: one controller, autoplay and smooth transitions */
+/* Accessible six-service hero carousel: one controller, autoplay and smooth transitions */
 (function () {
   const root = document.querySelector('.hero-carousel');
   if (!root) return;

@@ -152,18 +152,18 @@ footer{border-top:1px solid var(--line)}
 .art-training-hero{background:radial-gradient(circle at 50% 40%,#8c7949,#174c3c 70%)}
 .art-cert-hero{background:radial-gradient(circle at 50% 40%,#b78a2d,#064332 70%)}
 .art-lab-hero{background:radial-gradient(circle at 50% 40%,#4c9c9b,#064332 70%)}
-.art-library-hero{background:radial-gradient(circle at 50% 40%,#426c83,#063d35 70%)}
+.art-library-hero{background:radial-gradient(circle at 50% 40%,#426c83,#063d35 70%)}.art-quran-hero{background:radial-gradient(circle at 50% 40%,#2d8769,#064332 68%)}
 .hero-control{position:absolute;top:37%;z-index:3;width:43px;height:43px;border-radius:50%;border:1px solid #c7d9cd;background:#fff;color:#075744;font-size:27px;line-height:1;cursor:pointer;box-shadow:0 5px 16px #073f341a}
 .hero-control:hover{background:#075744;color:#fff}
 .hero-prev{left:18px}.hero-next{right:18px}
 .hero-pagination{position:absolute;bottom:91px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:4}
 .hero-pagination button{width:9px;height:9px;border:0;border-radius:50%;padding:0;background:#b7c8bd;cursor:pointer;transition:all .25s}
 .hero-pagination button.is-active{width:27px;border-radius:8px;background:#b78a2d}
-.hero-service-strip{position:absolute;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(5,1fr);max-width:1240px;margin:auto;background:#fff;border:1px solid #e2e9e1;border-radius:14px 14px 0 0;box-shadow:0 -8px 30px rgba(10,65,46,.06);overflow:hidden}
+.hero-service-strip{position:absolute;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(6,1fr);max-width:1240px;margin:auto;background:#fff;border:1px solid #e2e9e1;border-radius:14px 14px 0 0;box-shadow:0 -8px 30px rgba(10,65,46,.06);overflow:hidden}
 .hero-service-strip a{min-height:68px;display:flex;align-items:center;gap:9px;padding:12px 15px;text-decoration:none;border-right:1px solid #edf1ed;color:#123f34;transition:background .2s}
 .hero-service-strip a:last-child{border:0}.hero-service-strip a:hover{background:#edf5ef}
 .hero-service-strip span{font-size:17px;color:#b18a3d;font-weight:800}.hero-service-strip b{font-size:17px;line-height:1.35;flex:1}.hero-service-strip i{font-style:normal;color:#98752d}
-@media(max-width:850px){.hero-carousel{padding:42px 26px 105px;min-height:640px}.hero-slides{min-height:450px}.hero-slide{grid-template-columns:1fr;gap:22px}.hero-slide-copy{max-width:100%}.hero-art{height:190px}.hero-art-symbol{font-size:90px}.hero-control{top:43%}.hero-prev{left:7px}.hero-next{right:7px}.hero-pagination{bottom:83px}.hero-service-strip{grid-template-columns:repeat(5,minmax(130px,1fr));overflow-x:auto}.hero-service-strip a{padding:10px;min-height:65px}.hero-service-strip b{font-size:18px}}
+@media(max-width:850px){.hero-carousel{padding:42px 26px 105px;min-height:640px}.hero-slides{min-height:450px}.hero-slide{grid-template-columns:1fr;gap:22px}.hero-slide-copy{max-width:100%}.hero-art{height:190px}.hero-art-symbol{font-size:90px}.hero-control{top:43%}.hero-prev{left:7px}.hero-next{right:7px}.hero-pagination{bottom:83px}.hero-service-strip{grid-template-columns:repeat(6,minmax(130px,1fr));overflow-x:auto}.hero-service-strip a{padding:10px;min-height:65px}.hero-service-strip b{font-size:18px}}
 @media(max-width:520px){.hero-carousel{padding:32px 22px 105px;min-height:620px}.hero-slides{min-height:450px}.hero-slide-copy h1,.hero-slide-copy h2{font-size:43px}.hero-slide-copy .hero-lead{font-size:18px}.hero-art{height:175px}.hero-control{width:34px;height:34px;font-size:22px}.hero-service-strip{left:0;right:0}.hero-service-strip a{min-width:125px}.hero-pagination{bottom:83px}}
 @media(prefers-reduced-motion:reduce){.hero-slide,.hero-pagination button{transition:none}}
 
@@ -290,7 +290,7 @@ footer{border-top:1px solid var(--line)}
 .art-training-hero{background:radial-gradient(circle at 50% 42%,#9b8248 0,#476747 48%,#123f36 100%)}
 .art-cert-hero{background:radial-gradient(circle at 50% 42%,#b78a2d 0,#55704b 48%,#073d33 100%)}
 .art-lab-hero{background:radial-gradient(circle at 50% 42%,#4d9998 0,#286c62 48%,#073d36 100%)}
-.art-library-hero{background:radial-gradient(circle at 50% 42%,#66879a 0,#315e68 48%,#073b35 100%)}
+.art-library-hero{background:radial-gradient(circle at 50% 42%,#66879a 0,#315e68 48%,#073b35 100%)}.art-quran-hero{background:radial-gradient(circle at 50% 42%,#267a5c 0,#0b5841 48%,#063b32 100%)}
 .hero-service-strip{
   border-radius:14px 14px 0 0;
   box-shadow:0 -12px 35px rgba(10,65,46,.08);
