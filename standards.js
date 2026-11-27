@@ -143,8 +143,8 @@ const standardsCatalog=[
   const q=(search.value||'').trim().toLowerCase(); let total=0,html='';
   standardsCatalog.forEach((g,gi)=>{
    const items=g.items.filter(it=>(g.group+' '+g.subtitle+' '+it.join(' ')).toLowerCase().includes(q));
-   if(!items.length)return; total+=items.length;
-   html+='<details class="standard-group" '+(q?'open':'')+'><summary><span class="standard-group-number">'+String(gi+1).padStart(2,'0')+'</span><span class="standard-group-title"><strong>'+esc(g.group)+'</strong><small>'+esc(g.subtitle)+' · '+items.length+' listed standards</small></span><span class="standard-group-arrow">⌄</span></summary><div class="standard-items">';
+   if(!items.length)return; total+=items.filter(it=>it[1]).length;
+   html+='<details class="standard-group" '+(q?'open':'')+'><summary><span class="standard-group-number">'+String(gi+1).padStart(2,'0')+'</span><span class="standard-group-title"><strong>'+esc(g.group)+'</strong><small>'+esc(g.subtitle)+' · '+items.filter(it=>it[1]).length+' listed standards</small></span><span class="standard-group-arrow">⌄</span></summary><div class="standard-items">';
    items.forEach(it=>{if(!it[1]){html+='<div class="standard-category-heading">'+esc(it[0])+'</div>';return;}html+='<article class="standard-item"><div><b>'+esc(it[0])+'</b><h3>'+esc(it[1])+'</h3><p>'+esc(it[2])+'</p></div><button type="button" class="standard-training-button" data-standard="'+esc(it[0])+'" data-standard-title="'+esc(it[1])+'">Request training <span>→</span></button></article>';});
    html+='<a class="standard-source" href="'+esc(g.url)+'" target="_blank" rel="noopener">Official catalogue / authority website ↗</a></div></details>';
   });

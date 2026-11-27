@@ -70,10 +70,11 @@ const formSubmitButton = inquiryForm?.querySelector('button[type="submit"]');
 
 const options = {
   'Research & Digital Innovation': ['Ingredient Halal Status Assessment', 'Product Halal Assessment', 'Shariah Research Question', 'Technical Ingredient Query', 'Research Methodology Course', 'Website / App Development'],
-  'Halal Training': ['Basic Halal Awareness', 'Halal Internal Auditor Training', 'Halal Lead Auditor Training', 'HACCP / ISO / GMP Training', 'Corporate Training'],
+  'Halal Training': ['Basic Halal Awareness', 'Halal Internal Auditor Training', 'Halal Lead Auditor Training', 'HACCP / ISO / GMP Training', 'Standards Orientation', 'Corporate Training'],
   'Learn Quran Online': ['Qaida Quran', 'Nazra Quran', 'Hifz Quran', 'Islamic Tarbiyah'],
   'Certification': ['Halal Certification', 'ISO Certification', 'HACCP Certification', 'GMP Certification', 'Certification Consultancy'],
   'Laboratory Testing': ['Food Product Testing', 'Ingredient Composition Analysis', 'Microbiological Testing', 'Chemical / Additive Analysis', 'Halal-related Product Testing', 'Species / DNA Identification', 'Gelatin / Collagen Source Analysis', 'Alcohol / Ethanol Analysis', 'Contaminants / Residue Testing', 'Find a Suitable Laboratory', 'Other'],
+  'Halal Digital Library': ['E-Book Purchase', 'Digital Library Subscription', 'Other'],
   'General Inquiry': ['General Information', 'Partnership', 'Other']
 };
 
@@ -99,19 +100,19 @@ function updateServices() {
 function updateWhatsAppLink() {
   if (!inquiryForm || !whatsappLink) return;
   const data = Object.fromEntries(new FormData(inquiryForm).entries());
-  const message = 'Halal Research Web enquiry\\nName: ' + (data.name || '') +
-    '\\nEmail: ' + (data.email || '') +
-    '\\nCompany: ' + (data.company || '') +
-    '\\nDepartment: ' + (data.department || '') +
-    '\\nService: ' + (data.service || '') +
-    '\\nProduct / sample: ' + (data.product_name || '') +
-    '\\nPreferred laboratory: ' + (data.preferred_laboratory || '') +
-    '\\nRequired test: ' + (data.required_test || '') +
-    '\\nPreferred city: ' + (data.preferred_city || '') +
-    '\\nStandard: ' + (data.standard || '') +
-    '\\nPhone: ' + (data.phone || '') +
-    '\\nKeep my details: ' + (data.data_retention || '') +
-    '\\nMessage: ' + (data.message || '');
+  const message = 'Halal Research Web enquiry\nName: ' + (data.name || '') +
+    '\nEmail: ' + (data.email || '') +
+    '\nCompany: ' + (data.company || '') +
+    '\nDepartment: ' + (data.department || '') +
+    '\nService: ' + (data.service || '') +
+    '\nProduct / sample: ' + (data.product_name || '') +
+    '\nPreferred laboratory: ' + (data.preferred_laboratory || '') +
+    '\nRequired test: ' + (data.required_test || '') +
+    '\nPreferred city: ' + (data.preferred_city || '') +
+    '\nStandard: ' + (data.standard || '') +
+    '\nPhone: ' + (data.phone || '') +
+    '\nKeep my details: ' + (data.data_retention || '') +
+    '\nMessage: ' + (data.message || '');
   whatsappLink.href = 'https://wa.me/923499365338?text=' + encodeURIComponent(message);
 }
 
@@ -119,6 +120,12 @@ const initialDept = new URLSearchParams(location.search).get('dept');
 if (dept && initialDept && options[initialDept]) {
   dept.value = initialDept;
   updateServices();
+}
+
+const initialLab = new URLSearchParams(location.search).get('lab');
+if (labSelect && initialLab && dept && dept.value === 'Laboratory Testing') {
+  const match = [...labSelect.options].find(option => option.value.toLowerCase().includes(initialLab.toLowerCase()));
+  if (match) labSelect.value = match.value;
 }
 
 if (dept) {
@@ -147,7 +154,7 @@ if (inquiryForm) {
     let databaseSaved = false;
     try {
       const formData = new FormData(inquiryForm);
-      const config = window.HALALBRIDGE_SUPABASE || {};
+      const config = window.HALALRESEARCHWEB_SUPABASE || {};
       if (isLabRequest && config.url && config.anonKey && window.supabase) {
         const db = window.supabase.createClient(config.url, config.anonKey);
         const request = {

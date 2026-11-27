@@ -1,4 +1,4 @@
-window.HALALBRIDGE_ETERMS = [
+window.HALALRESEARCHWEB_ETERMS = [
 {"term":"Acidity regulators","definition":"Additives that change or hold a food's acidity or alkalinity steady, including acids, alkalis and buffers."},
 {"term":"Acids","definition":"Additives that raise the acidity of a food and can help preserve it; vinegar and citric acid are common examples."},
 {"term":"Anti-caking agents","definition":"Additives added to powdered or crystalline foods to stop them clumping or sticking together."},

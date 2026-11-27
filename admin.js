@@ -1,5 +1,5 @@
 (() => {
-  const config = window.HALALBRIDGE_SUPABASE || {};
+  const config = window.HALALRESEARCHWEB_SUPABASE || {};
   const setupNotice = document.getElementById('setup-notice');
   const loginPanel = document.getElementById('login-panel');
   const dashboard = document.getElementById('dashboard');

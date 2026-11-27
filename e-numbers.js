@@ -1,4 +1,4 @@
-window.HALALBRIDGE_ENUMBERS = [
+window.HALALRESEARCHWEB_ENUMBERS = [
 {"code": "E100", "name": "Curcumin", "category": "Colours", "status": "Halal", "reason": "A plant colour from turmeric root. As a dry powder it involves no animal ingredient, but a liquid preparation should be checked for its solvent or carrier, which must also be halal."},
 {"code": "E100i", "name": "Curcumin", "category": "Colours", "status": "Halal", "reason": "A purified colour from turmeric root, with no animal ingredient normally involved."},
 {"code": "E100ii", "name": "Turmeric", "category": "Colours", "status": "Halal", "reason": "A colour from turmeric root, with no animal ingredient normally involved."},

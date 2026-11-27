@@ -5,7 +5,7 @@
 // This is a verified floor, not a complete market picture: other certifiers publish no current public list,
 // and several well-known brands could NOT be included because the only lists found for them had expired dates.
 // A missing record does not mean a product is Halal or Haram. Re-check the certificate before relying on a status.
-window.HALALBRIDGE_PHS = [
+window.HALALRESEARCHWEB_PHS = [
  {
   "product": "LU TUC Biscuits",
   "company": "Continental Biscuits Ltd",
