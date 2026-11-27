@@ -112,7 +112,7 @@ function updateWhatsAppLink() {
     '\\nPhone: ' + (data.phone || '') +
     '\\nKeep my details: ' + (data.data_retention || '') +
     '\\nMessage: ' + (data.message || '');
-  whatsappLink.href = 'https://wa.me/923093873692?text=' + encodeURIComponent(message);
+  whatsappLink.href = 'https://wa.me/923499365338?text=' + encodeURIComponent(message);
 }
 
 const initialDept = new URLSearchParams(location.search).get('dept');
